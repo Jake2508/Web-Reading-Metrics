@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Stats } from "../../../../shared/src/schemas";
 
 interface InsightCardsProps {
@@ -9,26 +10,44 @@ interface InsightItemProps {
   value: string;
   sub?: string;
   accent?: "yellow" | "red" | "blue";
+  to?: string;
 }
 
-function InsightItem({ label, value, sub, accent }: InsightItemProps) {
+function InsightItem({ label, value, sub, accent, to }: InsightItemProps) {
   const accentBg = accent === "yellow" ? "bg-[#FFEB3B]" : accent === "red" ? "bg-[#FF5252]" : accent === "blue" ? "bg-[#2196F3]" : "bg-white";
   const textColor = (accent === "red" || accent === "blue") ? "text-white" : "text-black";
+  const isDark = accent === "red" || accent === "blue";
 
-  return (
-    <div
-      className={`border-3 border-black p-4 flex flex-col gap-1 ${accentBg}`}
-      style={{ borderWidth: "3px", boxShadow: "3px 3px 0 #000" }}
-    >
-      <span className={`text-xs font-bold uppercase tracking-widest ${accent === "red" || accent === "blue" ? "text-white/60" : "text-black/50"}`}>
+  const className = `border-3 border-black p-4 flex flex-col gap-1 ${accentBg} ${
+    to ? "hover:-translate-y-0.5 transition-transform cursor-pointer" : ""
+  }`;
+  const style = { borderWidth: "3px", boxShadow: "3px 3px 0 #000" };
+
+  const content = (
+    <>
+      <span className={`text-xs font-bold uppercase tracking-widest ${isDark ? "text-white/60" : "text-black/50"}`}>
         {label}
       </span>
       <span className={`text-2xl font-black leading-none ${textColor}`}>{value}</span>
       {sub && (
-        <span className={`text-xs font-semibold ${accent === "red" || accent === "blue" ? "text-white/70" : "text-black/60"}`}>
+        <span className={`text-xs font-semibold ${isDark ? "text-white/70" : "text-black/60"}`}>
           {sub}
         </span>
       )}
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={className} style={style}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={className} style={style}>
+      {content}
     </div>
   );
 }
@@ -50,6 +69,7 @@ export function InsightCards({ stats }: InsightCardsProps) {
       value: stats.longestBook.pages.toLocaleString(),
       sub: stats.longestBook.title.length > 20 ? stats.longestBook.title.slice(0, 20) + "…" : stats.longestBook.title,
       accent: "red",
+      to: "/books?filter=size:largest",
     });
   }
 

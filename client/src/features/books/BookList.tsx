@@ -338,9 +338,10 @@ export function BookList() {
   const [searchParams] = useSearchParams();
   const authorParam = searchParams.get("author");
   const bookParam = searchParams.get("book");
+  const filterParam = searchParams.get("filter");
 
   const [filter, setFilter] = useState(
-    authorParam ? "author:most" : bookParam ? "rating:high" : "all"
+    filterParam ?? (authorParam ? "author:most" : bookParam ? "rating:high" : "all")
   );
   const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState<"books" | "authors">(authorParam ? "authors" : "books");
