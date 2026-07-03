@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useBooks } from "./hooks/useBooks";
 import { BookCover } from "../../components/ui/BookCover";
 import { Badge } from "../../components/ui/Badge";
@@ -128,12 +129,17 @@ type AuthorGroup = {
   genres: string[];
 };
 
-function groupByAuthor(books: Book[]): AuthorGroup[] {
+function authorSlug(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+function groupByAuthor(books: Book[], order: "most" | "least" = "most"): AuthorGroup[] {
   const map = new Map<string, Book[]>();
   for (const book of books) {
     if (!map.has(book.author)) map.set(book.author, []);
     map.get(book.author)!.push(book);
   }
+  const direction = order === "least" ? -1 : 1;
   return [...map.entries()]
     .map(([author, authorBooks]) => {
       const rated = authorBooks.filter((b) => b.rating != null);
@@ -148,7 +154,7 @@ function groupByAuthor(books: Book[]): AuthorGroup[] {
         genres: [...new Set(authorBooks.map((b) => b.genre))],
       };
     })
-    .sort((a, b) => b.books.length - a.books.length || a.author.localeCompare(b.author));
+    .sort((a, b) => direction * (b.books.length - a.books.length) || a.author.localeCompare(b.author));
 }
 
 function MiniBookRow({ book }: { book: Book }) {
@@ -186,21 +192,30 @@ function MiniBookRow({ book }: { book: Book }) {
   );
 }
 
-function AuthorCard({ group }: { group: AuthorGroup }) {
-  const [expanded, setExpanded] = useState(false);
-
+function AuthorCard({
+  group,
+  isExpanded,
+  onToggle,
+  highlighted,
+}: {
+  group: AuthorGroup;
+  isExpanded: boolean;
+  onToggle: () => void;
+  highlighted?: boolean;
+}) {
   const topBooks = [...group.books]
     .sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1))
     .slice(0, 3);
 
   return (
     <div
-      className="border-black bg-white"
+      id={`author-${authorSlug(group.author)}`}
+      className={`border-black transition-colors duration-700 ${highlighted ? "bg-[#FFEB3B]/40" : "bg-white"}`}
       style={{ borderWidth: "3px", border: "3px solid #000", boxShadow: "4px 4px 0 #000" }}
     >
       <button
         className="w-full p-4 flex gap-4 items-center text-left hover:bg-[#FFEB3B]/20 transition-colors"
-        onClick={() => setExpanded((e) => !e)}
+        onClick={onToggle}
       >
         <div className="flex items-center flex-shrink-0">
           {topBooks.map((book, i) => (
@@ -253,7 +268,7 @@ function AuthorCard({ group }: { group: AuthorGroup }) {
             stroke="currentColor"
             strokeWidth="3"
             style={{
-              transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+              transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 150ms",
               flexShrink: 0,
             }}
@@ -263,7 +278,7 @@ function AuthorCard({ group }: { group: AuthorGroup }) {
         </div>
       </button>
 
-      {expanded && (
+      {isExpanded && (
         <div className="border-t-2 border-black px-4 bg-black/[0.02]">
           {group.books.map((book) => (
             <MiniBookRow key={book.id} book={book} />
@@ -312,9 +327,44 @@ function BookRow({ book }: { book: Book }) {
 
 export function BookList() {
   const { data: books, isLoading, error } = useBooks();
-  const [filter, setFilter] = useState("all");
+  const [searchParams] = useSearchParams();
+  const authorParam = searchParams.get("author");
+
+  const [filter, setFilter] = useState(authorParam ? "author:most" : "all");
   const [search, setSearch] = useState("");
-  const [viewMode, setViewMode] = useState<"books" | "authors">("books");
+  const [viewMode, setViewMode] = useState<"books" | "authors">(authorParam ? "authors" : "books");
+  const [expandedAuthors, setExpandedAuthors] = useState<Set<string>>(new Set());
+  const [highlightedAuthor, setHighlightedAuthor] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!authorParam || !books) return;
+    const match = books.find((b) => b.author.toLowerCase() === authorParam.toLowerCase());
+    if (!match) return;
+
+    setExpandedAuthors((prev) => new Set(prev).add(match.author));
+    setHighlightedAuthor(match.author);
+
+    const raf = requestAnimationFrame(() => {
+      document.getElementById(`author-${authorSlug(match.author)}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    });
+    const timeout = setTimeout(() => setHighlightedAuthor(null), 1800);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timeout);
+    };
+  }, [authorParam, books]);
+
+  const toggleAuthor = (author: string) => {
+    setExpandedAuthors((prev) => {
+      const next = new Set(prev);
+      if (next.has(author)) next.delete(author);
+      else next.add(author);
+      return next;
+    });
+  };
 
   if (isLoading) {
     return (
@@ -360,11 +410,23 @@ export function BookList() {
   const genres = [...new Set(books.map((b) => b.genre))].sort();
   const afterFilter = applyFilter(books, filter);
   const filtered = applySearch(afterFilter, search);
-  const authorGroups = viewMode === "authors" ? groupByAuthor(filtered) : [];
+  const authorGroups =
+    viewMode === "authors" ? groupByAuthor(filtered, filter === "author:least" ? "least" : "most") : [];
   const isFiltered = filter !== "all" || search.trim().length > 0;
   const totalAuthors = [...new Set(books.map((b) => b.author))].length;
 
   const filterGroups: OptionGroup[] = [
+    ...(viewMode === "authors"
+      ? [
+          {
+            label: "Authors",
+            options: [
+              { value: "author:most", label: "Most Read" },
+              { value: "author:least", label: "Least Read" },
+            ],
+          },
+        ]
+      : []),
     {
       label: "Genre",
       options: genres.map((g) => ({ value: `genre:${g}`, label: g })),
@@ -470,7 +532,13 @@ export function BookList() {
         ) : (
           <div className="flex flex-col gap-3">
             {authorGroups.map((group) => (
-              <AuthorCard key={group.author} group={group} />
+              <AuthorCard
+                key={group.author}
+                group={group}
+                isExpanded={expandedAuthors.has(group.author)}
+                onToggle={() => toggleAuthor(group.author)}
+                highlighted={highlightedAuthor === group.author}
+              />
             ))}
           </div>
         )
