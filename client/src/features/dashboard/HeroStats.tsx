@@ -20,6 +20,7 @@ export function HeroStats({ stats }: HeroStatsProps) {
         subtitle="in your library"
         color="yellow"
         size="sm"
+        to="/books"
       />
       <MetricCard
         label="Pages Read"
@@ -41,6 +42,7 @@ export function HeroStats({ stats }: HeroStatsProps) {
         subtitle={stats.topAuthor ? `${stats.topAuthor.bookCount} books · ${stats.topAuthor.percentage}%` : "No data"}
         color="red"
         size="sm"
+        to={stats.topAuthor ? `/books?author=${encodeURIComponent(stats.topAuthor.name)}` : undefined}
       />
       <MetricCard
         label="Top Genre"
@@ -48,6 +50,7 @@ export function HeroStats({ stats }: HeroStatsProps) {
         subtitle={stats.topGenre ? `${stats.topGenre.bookCount} books` : "No data"}
         color="white"
         size="sm"
+        to={stats.topGenre ? `/books?filter=${encodeURIComponent(`genre:${stats.topGenre.name}`)}` : undefined}
       />
     </div>
   );

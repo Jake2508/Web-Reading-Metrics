@@ -1,7 +1,7 @@
 {
-  "totalBooks": 87,
-  "totalPages": 33565,
-  "estimatedWords": 9230375,
+  "totalBooks": 86,
+  "totalPages": 33309,
+  "estimatedWords": 9159975,
   "topAuthor": {
     "name": "Stephen King",
     "bookCount": 19,
@@ -12,8 +12,8 @@
     "bookCount": 27,
     "percentage": 31
   },
-  "averageRating": 4,
-  "averagePages": 386,
+  "averageRating": 4.1,
+  "averagePages": 387,
   "longestBook": {
     "id": "cmqdnjnrd000jum50vj3yttwe",
     "title": "It",
@@ -87,9 +87,9 @@
     },
     {
       "genre": "Science Fiction",
-      "count": 16,
-      "pages": 6211,
-      "percentage": 18
+      "count": 15,
+      "pages": 5955,
+      "percentage": 17
     },
     {
       "genre": "Horror",
@@ -201,11 +201,6 @@
       "pages": 11884
     },
     {
-      "author": "H. G. Wells",
-      "count": 6,
-      "pages": 1176
-    },
-    {
       "author": "Anne Rice",
       "count": 5,
       "pages": 2267
@@ -214,6 +209,11 @@
       "author": "George Orwell",
       "count": 5,
       "pages": 1298
+    },
+    {
+      "author": "H. G. Wells",
+      "count": 5,
+      "pages": 920
     },
     {
       "author": "James Dashner",

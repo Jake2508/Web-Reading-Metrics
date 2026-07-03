@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Stats } from "../../../../shared/src/schemas";
 import { BookCover } from "../../components/ui/BookCover";
 import { Badge } from "../../components/ui/Badge";
@@ -46,8 +47,9 @@ export function FeaturedBook({ stats }: FeaturedBookProps) {
   }
 
   return (
-    <div
-      className="border-3 border-black bg-white p-6 flex flex-col gap-4 h-full"
+    <Link
+      to={`/books?book=${book.id}`}
+      className="border-3 border-black bg-white p-6 flex flex-col gap-4 h-full hover:-translate-y-0.5 hover:bg-[#FFEB3B]/10 transition-all"
       style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
     >
       <div className="flex items-start justify-between">
@@ -92,6 +94,6 @@ export function FeaturedBook({ stats }: FeaturedBookProps) {
           {book.description}
         </p>
       )}
-    </div>
+    </Link>
   );
 }

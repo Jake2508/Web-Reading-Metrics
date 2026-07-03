@@ -17,7 +17,7 @@ export function Nav() {
     >
       <div className="flex items-center gap-3">
         <div
-          className="border-2 border-black bg-black p-2"
+          className="border-2 border-black bg-black p-2 rounded-md"
           style={{ boxShadow: "2px 2px 0 #000" }}
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" strokeWidth="2.5">
@@ -26,7 +26,7 @@ export function Nav() {
           </svg>
         </div>
         <div>
-          <h1 className="text-lg font-black text-black leading-none">Index</h1>
+          <h1 className="text-lg font-black text-black leading-none">Booked</h1>
           <p className="text-xs font-bold text-black/50 leading-none">Reading Dashboard</p>
         </div>
       </div>

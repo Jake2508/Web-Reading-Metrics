@@ -37,12 +37,13 @@ export function AuthorBarChart({ data, height = 220 }: AuthorBarChartProps) {
   const top = data.slice(0, 6).map((d) => ({ ...d, shortName: shortName(d.author) }));
   return (
     <div
-      className="border-3 border-black bg-white p-5"
+      className="border-3 border-black bg-white p-5 select-none"
       style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
+      onMouseDown={(e) => e.preventDefault()}
     >
       <h3 className="text-base font-black text-black mb-3 uppercase tracking-wide">Top Authors</h3>
       <ResponsiveContainer width="100%" height={height}>
-        <BarChart data={top} layout="vertical" margin={{ top: 4, right: 16, left: 20, bottom: 0 }}>
+        <BarChart data={top} layout="vertical" margin={{ top: 4, right: 16, left: 20, bottom: 0 }} accessibilityLayer={false}>
           <CartesianGrid strokeDasharray="0" stroke="#000" strokeWidth={1} opacity={0.1} horizontal={false} />
           <XAxis
             type="number"

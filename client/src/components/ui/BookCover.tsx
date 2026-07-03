@@ -9,16 +9,25 @@ interface BookCoverProps {
 
 export function BookCover({ coverUrl, title, author, className = "" }: BookCoverProps) {
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   if (coverUrl && !failed) {
     return (
-      <img
-        src={coverUrl}
-        alt={`Cover of ${title}`}
-        onError={() => setFailed(true)}
-        className={`object-cover border-2 border-black ${className}`}
+      <div
+        className={`relative overflow-hidden border-2 border-black ${className}`}
         style={{ boxShadow: "3px 3px 0 #000" }}
-      />
+      >
+        {!loaded && <div className="absolute inset-0 shimmer" />}
+        <img
+          src={coverUrl}
+          alt={`Cover of ${title}`}
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
     );
   }
 
