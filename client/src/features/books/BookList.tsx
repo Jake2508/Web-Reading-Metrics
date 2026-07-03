@@ -289,11 +289,19 @@ function AuthorCard({
   );
 }
 
-function BookRow({ book }: { book: Book }) {
+function BookRow({ book, highlighted }: { book: Book; highlighted?: boolean }) {
   return (
     <div
-      className="border-black bg-white p-4 flex gap-4 items-start hover:-translate-y-0.5 transition-transform"
-      style={{ borderWidth: "3px", border: "3px solid #000", boxShadow: "4px 4px 0 #000" }}
+      id={`book-${book.id}`}
+      className={`border-black p-4 flex gap-4 items-start hover:-translate-y-0.5 transition-transform ${
+        highlighted ? "bg-[#FFEB3B]/40" : "bg-white"
+      }`}
+      style={{
+        borderWidth: "3px",
+        border: "3px solid #000",
+        boxShadow: "4px 4px 0 #000",
+        transition: "background-color 700ms, transform 150ms",
+      }}
     >
       <BookCover
         coverUrl={book.coverUrl}
@@ -329,12 +337,16 @@ export function BookList() {
   const { data: books, isLoading, error } = useBooks();
   const [searchParams] = useSearchParams();
   const authorParam = searchParams.get("author");
+  const bookParam = searchParams.get("book");
 
-  const [filter, setFilter] = useState(authorParam ? "author:most" : "all");
+  const [filter, setFilter] = useState(
+    authorParam ? "author:most" : bookParam ? "rating:high" : "all"
+  );
   const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState<"books" | "authors">(authorParam ? "authors" : "books");
   const [expandedAuthors, setExpandedAuthors] = useState<Set<string>>(new Set());
   const [highlightedAuthor, setHighlightedAuthor] = useState<string | null>(null);
+  const [highlightedBook, setHighlightedBook] = useState<string | null>(null);
 
   useEffect(() => {
     if (!authorParam || !books) return;
@@ -356,6 +368,26 @@ export function BookList() {
       clearTimeout(timeout);
     };
   }, [authorParam, books]);
+
+  useEffect(() => {
+    if (!bookParam || !books) return;
+    const match = books.find((b) => b.id === bookParam);
+    if (!match) return;
+
+    setHighlightedBook(match.id);
+
+    const raf = requestAnimationFrame(() => {
+      document.getElementById(`book-${match.id}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    });
+    const timeout = setTimeout(() => setHighlightedBook(null), 1800);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timeout);
+    };
+  }, [bookParam, books]);
 
   const toggleAuthor = (author: string) => {
     setExpandedAuthors((prev) => {
@@ -515,7 +547,7 @@ export function BookList() {
         ) : (
           <div className="flex flex-col gap-3">
             {filtered.map((book) => (
-              <BookRow key={book.id} book={book} />
+              <BookRow key={book.id} book={book} highlighted={highlightedBook === book.id} />
             ))}
           </div>
         )
