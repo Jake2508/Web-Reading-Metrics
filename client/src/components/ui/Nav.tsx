@@ -26,7 +26,7 @@ export function Nav() {
           </svg>
         </div>
         <div>
-          <h1 className="text-lg font-black text-black leading-none">Index</h1>
+          <h1 className="text-lg font-black text-black leading-none">Booked</h1>
           <p className="text-xs font-bold text-black/50 leading-none">Reading Dashboard</p>
         </div>
       </div>
