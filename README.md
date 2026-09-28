@@ -1,4 +1,4 @@
-# Index — Reading Metrics Dashboard
+# Reading Metrics Dashboard
 
 A personal reading analytics dashboard with a calm, dark "Forest Night" design (see `Instructions/DESIGN.md`). Tracks books, visualises reading habits, and deploys as a fully static site with no backend required on the live version.
 
