@@ -1,60 +1,178 @@
 @import "tailwindcss";
 
+/* Forest Night tokens — Instructions/DESIGN.md is the source of truth. */
+:root {
+  /* surfaces */
+  --bg: #14261c;
+  --surface: #1b3125;
+  --surface-2: #1f3b2d;
+  --surface-hover: #203829; /* hover lift for panels and rows */
+  --border: #28432f;
+  --border-subtle: #243c2e;
+  --axis: #3a5a46;
+
+  /* text */
+  --text: #ede9df;
+  --text-muted: #9db0a3;
+  --text-faint: #8fa497;
+
+  /* accent */
+  --brass: #d2a450;
+  --sage: #7fb08f;
+  --on-brass: #14261c;
+
+  /* chart / genre palette, fixed order */
+  --g1: #d2a450;
+  --g2: #7fb08f;
+  --g3: #c8705c;
+  --g4: #7c97b8;
+  --g5: #e0c890;
+  --g6: #a9c48f;
+  --g7: #cfc6b0;
+  --g-other: #5e7466;
+
+  color-scheme: dark;
+}
+
+/*
+ * Tailwind theme. The defaults are cleared so only Forest Night tokens exist
+ * as utilities: no stray palette colours, shadows or type sizes.
+ */
+@theme inline {
+  --color-*: initial;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-axis: var(--axis);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-brass: var(--brass);
+  --color-sage: var(--sage);
+  --color-on-brass: var(--on-brass);
+}
+
 @theme {
-  --color-brand-yellow: #FFEB3B;
-  --color-brand-red: #FF5252;
-  --color-brand-blue: #2196F3;
-  --color-brand-black: #000000;
-  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-*: initial;
+  --font-serif: "Literata", Georgia, "Times New Roman", serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+
+  --text-*: initial;
+  --text-display: 40px; /* hero name */
+  --text-display--line-height: 1;
+  --text-total: 38px; /* sidebar totals */
+  --text-total--line-height: 1.05;
+  --text-title: 32px; /* page title */
+  --text-title--line-height: 1.15;
+  --text-metric: 26px; /* metric in panel, wordmark */
+  --text-metric--line-height: 1.1;
+  --text-panel: 18px; /* panel title */
+  --text-panel--line-height: 1.3;
+  --text-book: 17px; /* book title in lists */
+  --text-book--line-height: 1.3;
+  --text-body: 14px;
+  --text-body--line-height: 1.5;
+  --text-meta: 13px;
+  --text-meta--line-height: 1.45;
+  --text-label: 12px;
+  --text-label--line-height: 1.4;
+  --text-eyebrow: 11px;
+  --text-eyebrow--line-height: 1.3;
+
+  --tracking-eyebrow: 0.13em;
+
+  --radius-cover: 2px 4px 4px 2px;
+
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+  --shadow-cover: 0 14px 24px -10px rgb(0 0 0 / 0.7);
+  --inset-shadow-spine: inset 4px 0 0 rgb(0 0 0 / 0.25);
+
+  /* md: sidebar ↔ top bar (800px). lg: two-column panel rows (1100px). */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 50rem;
+  --breakpoint-lg: 68.75rem;
+
+  --animate-*: initial;
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-breathe: breathe 1.6s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes breathe {
+    50% {
+      opacity: 0.55;
+    }
+  }
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+    /* Set up front so colour transitions don't fade the focus ring in from currentColor. */
+    outline-color: var(--brass);
   }
+
+  html {
+    background-color: var(--bg);
+  }
+
   body {
-    font-family: "Inter", system-ui, sans-serif;
-    background-color: #FAF7EC; /* cream */
-    background-image:
-      linear-gradient(90deg, transparent 26px, #FF525233 26px 27px, transparent 27px),
-      repeating-linear-gradient(#0000 0 24px, #2196F330 24px 25px);
-    color: #000;
+    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--surface-2);
+    color: var(--brass);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 2px;
+  }
+
+  /* Text fields show focus with a brass border instead (DESIGN.md: Input / select). */
+  input:not([type="checkbox"], [type="radio"], [type="range"]):focus-visible,
+  textarea:focus-visible {
+    outline: none;
+  }
+
+  ::placeholder {
+    color: var(--text-faint);
+    opacity: 1;
+  }
+
+  option,
+  optgroup {
+    background-color: var(--surface);
+    color: var(--text);
   }
 }
 
-@layer utilities {
-  .shadow-brutal {
-    box-shadow: 4px 4px 0 #000;
-  }
-  .shadow-brutal-lg {
-    box-shadow: 6px 6px 0 #000;
-  }
-  .shadow-brutal-sm {
-    box-shadow: 2px 2px 0 #000;
-  }
-  .border-3 {
-    border-width: 3px;
-  }
-  .shimmer {
-    background-color: #e5e7eb;
-    background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.85) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.6s ease-in-out infinite;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 150% 0;
-  }
-  100% {
-    background-position: -150% 0;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

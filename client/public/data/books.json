@@ -1,5 +1,37 @@
 [
   {
+    "id": "cmullucew0001umhojflynpa5",
+    "title": "The Idiot",
+    "author": "Fyodor Dostoevsky",
+    "genre": "Classics",
+    "pages": 656,
+    "estimatedWords": 180400,
+    "rating": 4.2,
+    "dateFinished": null,
+    "coverUrl": "https://covers.openlibrary.org/b/id/228385-L.jpg",
+    "description": null,
+    "publishedYear": 1869,
+    "isbn": "9780375702242",
+    "createdAt": "2026-09-28T18:52:37.592Z",
+    "updatedAt": "2026-09-28T18:54:56.190Z"
+  },
+  {
+    "id": "cmulluce10000umhoktfol4bf",
+    "title": "Amerika",
+    "author": "Franz Kafka",
+    "genre": "Classics",
+    "pages": 299,
+    "estimatedWords": 82225,
+    "rating": 4.4,
+    "dateFinished": null,
+    "coverUrl": "https://covers.openlibrary.org/b/id/581711-L.jpg",
+    "description": null,
+    "publishedYear": 1927,
+    "isbn": "0805210644",
+    "createdAt": "2026-09-28T18:52:37.559Z",
+    "updatedAt": "2026-09-28T18:54:56.219Z"
+  },
+  {
     "id": "cmqzd56fc000mum2kysl5vqwd",
     "title": "The Kill Order",
     "author": "James Dashner",
@@ -83,7 +115,7 @@
     "id": "cmqzcw608000hum2k14u7v2x8",
     "title": "The Hatching",
     "author": "Ezekiel Boone",
-    "genre": "Science Fiction",
+    "genre": "Horror",
     "pages": 351,
     "estimatedWords": 96525,
     "rating": 4.4,
@@ -93,12 +125,12 @@
     "publishedYear": 2016,
     "isbn": "9780345816481",
     "createdAt": "2026-06-29T15:12:03.177Z",
-    "updatedAt": "2026-06-29T15:12:03.177Z"
+    "updatedAt": "2026-09-28T18:29:29.232Z"
   },
   {
     "id": "cmqzcv619000gum2kj0l7e6wi",
     "title": "Cardinal Black",
-    "author": "Robert McCammon",
+    "author": "Robert R. McCammon",
     "genre": "Mystery & Thriller",
     "pages": 464,
     "estimatedWords": 127600,
@@ -109,7 +141,7 @@
     "publishedYear": 2019,
     "isbn": "9781941971147",
     "createdAt": "2026-06-29T15:11:16.557Z",
-    "updatedAt": "2026-06-29T15:11:16.557Z"
+    "updatedAt": "2026-09-28T18:29:28.554Z"
   },
   {
     "id": "cmqzcun7z000fum2kmdms5udj",
@@ -129,9 +161,9 @@
   },
   {
     "id": "cmqzcs547000eum2krkbyt28q",
-    "title": "Scary stories to tell in the dark",
+    "title": "Scary Stories to Tell in the Dark",
     "author": "Alvin Schwartz",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 111,
     "estimatedWords": 30525,
     "rating": 4.2,
@@ -141,7 +173,7 @@
     "publishedYear": 1981,
     "isbn": "0812436644",
     "createdAt": "2026-06-29T15:08:55.399Z",
-    "updatedAt": "2026-06-29T15:08:55.399Z"
+    "updatedAt": "2026-09-28T18:29:28.669Z"
   },
   {
     "id": "cmqzcqn1q000dum2korwctgpd",
@@ -154,10 +186,10 @@
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/11272464-L.jpg",
     "description": null,
-    "publishedYear": 1865,
+    "publishedYear": 1871,
     "isbn": "9781724694270",
     "createdAt": "2026-06-29T15:07:45.326Z",
-    "updatedAt": "2026-06-29T15:07:45.326Z"
+    "updatedAt": "2026-09-28T18:29:29.676Z"
   },
   {
     "id": "cmqzcq9i4000cum2kbom3vxg1",
@@ -177,9 +209,9 @@
   },
   {
     "id": "cmqzcnwaq000bum2kj5mfw9se",
-    "title": "Prince Lestat, The Vampire Chronicles",
+    "title": "Prince Lestat",
     "author": "Anne Rice",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 520,
     "estimatedWords": 143000,
     "rating": 4,
@@ -189,13 +221,13 @@
     "publishedYear": 2014,
     "isbn": "1101874805",
     "createdAt": "2026-06-29T15:05:37.346Z",
-    "updatedAt": "2026-06-29T15:05:37.346Z"
+    "updatedAt": "2026-09-28T18:29:28.711Z"
   },
   {
     "id": "cmqzcjfsj000aum2k2e4qawr7",
     "title": "Watchmen",
     "author": "Alan Moore",
-    "genre": "Fantasy",
+    "genre": "Graphic Novels",
     "pages": 424,
     "estimatedWords": 116600,
     "rating": 4,
@@ -205,13 +237,13 @@
     "publishedYear": 1987,
     "isbn": "9788467473278",
     "createdAt": "2026-06-29T15:02:09.331Z",
-    "updatedAt": "2026-06-29T15:02:09.331Z"
+    "updatedAt": "2026-09-28T18:29:29.165Z"
   },
   {
     "id": "cmqzccwzv0009um2k3px2cs3q",
     "title": "The Turn of the Screw",
     "author": "Henry James",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 160,
     "estimatedWords": 44000,
     "rating": 3.4,
@@ -221,13 +253,13 @@
     "publishedYear": 1898,
     "isbn": "9781693325793",
     "createdAt": "2026-06-29T14:57:05.035Z",
-    "updatedAt": "2026-06-29T14:57:05.035Z"
+    "updatedAt": "2026-09-28T18:29:29.328Z"
   },
   {
     "id": "cmqzcabcf0008um2kc0tn7ouv",
     "title": "Heart of Darkness",
     "author": "Joseph Conrad",
-    "genre": "Mystery & Thriller",
+    "genre": "Classics",
     "pages": 136,
     "estimatedWords": 37400,
     "rating": 3.5,
@@ -237,7 +269,7 @@
     "publishedYear": 1899,
     "isbn": "9798523484063",
     "createdAt": "2026-06-29T14:55:03.663Z",
-    "updatedAt": "2026-06-29T14:55:03.663Z"
+    "updatedAt": "2026-09-28T18:29:29.340Z"
   },
   {
     "id": "cmqzc97mc0007um2krc195333",
@@ -257,25 +289,25 @@
   },
   {
     "id": "cmqzc7wrn0006um2kevotgv76",
-    "title": "Dar wilka",
+    "title": "The Wolf Gift",
     "author": "Anne Rice",
-    "genre": "Fantasy",
-    "pages": 520,
-    "estimatedWords": 143000,
+    "genre": "Horror",
+    "pages": 404,
+    "estimatedWords": 111100,
     "rating": 4.2,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/13937407-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14860760-L.jpg",
     "description": null,
     "publishedYear": 2012,
-    "isbn": "1448135311",
+    "isbn": "9780307595119",
     "createdAt": "2026-06-29T14:53:11.460Z",
-    "updatedAt": "2026-06-29T14:53:11.460Z"
+    "updatedAt": "2026-09-28T18:29:28.402Z"
   },
   {
     "id": "cmqzc5k8m0005um2krg4x7lrf",
     "title": "Blood Communion",
     "author": "Anne Rice",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 272,
     "estimatedWords": 74800,
     "rating": 4,
@@ -285,13 +317,13 @@
     "publishedYear": 2018,
     "isbn": "9786073187763",
     "createdAt": "2026-06-29T14:51:21.910Z",
-    "updatedAt": "2026-06-29T14:51:21.910Z"
+    "updatedAt": "2026-09-28T18:29:29.179Z"
   },
   {
     "id": "cmqzc30cj0004um2kf6lsvycz",
     "title": "Fairy Tale",
     "author": "Stephen King",
-    "genre": "Nyt:combined-print-and-e-book-",
+    "genre": "Fantasy",
     "pages": 762,
     "estimatedWords": 209550,
     "rating": 4.1,
@@ -301,13 +333,13 @@
     "publishedYear": 2022,
     "isbn": "9781668002186",
     "createdAt": "2026-06-29T14:49:22.819Z",
-    "updatedAt": "2026-06-29T14:49:22.819Z"
+    "updatedAt": "2026-09-28T18:29:29.542Z"
   },
   {
     "id": "cmqzc0c4u0003um2k5mdzz1yb",
     "title": "Christine",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 503,
     "estimatedWords": 138325,
     "rating": 4,
@@ -317,29 +349,29 @@
     "publishedYear": 1983,
     "isbn": "9781441739001",
     "createdAt": "2026-06-29T14:47:18.126Z",
-    "updatedAt": "2026-06-29T14:47:18.126Z"
+    "updatedAt": "2026-09-28T18:29:29.510Z"
   },
   {
     "id": "cmqzc00la0002um2kuqwykau8",
     "title": "Under the Dome",
     "author": "Stephen King",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 1074,
     "estimatedWords": 295350,
     "rating": 4.3,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/14651549-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/7887562-L.jpg",
     "description": null,
     "publishedYear": 2009,
-    "isbn": "0743597311",
+    "isbn": "9781476767277",
     "createdAt": "2026-06-29T14:47:03.166Z",
-    "updatedAt": "2026-06-29T14:47:03.166Z"
+    "updatedAt": "2026-09-28T18:29:29.152Z"
   },
   {
     "id": "cmqzbzmh20001um2kmqwvbrkx",
     "title": "Needful Things",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 698,
     "estimatedWords": 191950,
     "rating": 4.2,
@@ -349,7 +381,7 @@
     "publishedYear": 1991,
     "isbn": "9781101137963",
     "createdAt": "2026-06-29T14:46:44.870Z",
-    "updatedAt": "2026-06-29T14:46:44.870Z"
+    "updatedAt": "2026-09-28T18:29:29.583Z"
   },
   {
     "id": "cmqzbz6d00000um2kpdr2vgp2",
@@ -362,47 +394,47 @@
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/8396638-L.jpg",
     "description": null,
-    "publishedYear": 1976,
+    "publishedYear": 1982,
     "isbn": "9780340707500",
     "createdAt": "2026-06-29T14:46:23.988Z",
-    "updatedAt": "2026-06-29T14:46:23.988Z"
+    "updatedAt": "2026-09-28T18:29:29.701Z"
   },
   {
     "id": "cmqzah2jl001oum50oxz4s6h0",
     "title": "The Uninhabitable Earth",
     "author": "David Wallace-Wells",
     "genre": "Nature",
-    "pages": 250,
-    "estimatedWords": 68750,
+    "pages": 310,
+    "estimatedWords": 85250,
     "rating": 4.1,
     "dateFinished": null,
-    "coverUrl": null,
+    "coverUrl": "https://covers.openlibrary.org/b/id/8415586-L.jpg",
     "description": null,
-    "publishedYear": 0,
-    "isbn": null,
+    "publishedYear": 2019,
+    "isbn": "9780525576709",
     "createdAt": "2026-06-29T14:04:19.616Z",
-    "updatedAt": "2026-06-29T14:04:19.616Z"
+    "updatedAt": "2026-09-28T18:29:28.471Z"
   },
   {
     "id": "cmqzafuxv001num50ea13xtpc",
     "title": "The Deep",
-    "author": "Alex Rodgers",
+    "author": "Alex Rogers",
     "genre": "Nature",
-    "pages": 250,
-    "estimatedWords": 68750,
+    "pages": 480,
+    "estimatedWords": 132000,
     "rating": 4,
     "dateFinished": null,
     "coverUrl": null,
     "description": null,
-    "publishedYear": 0,
-    "isbn": null,
+    "publishedYear": 2019,
+    "isbn": "9781472253941",
     "createdAt": "2026-06-29T14:03:23.107Z",
-    "updatedAt": "2026-06-29T14:03:23.107Z"
+    "updatedAt": "2026-09-28T18:29:28.435Z"
   },
   {
     "id": "cmqzabsfz001mum50ewmh2r7j",
     "title": "Zero to One",
-    "author": "Peter A. Thiel",
+    "author": "Peter Thiel",
     "genre": "Business",
     "pages": 253,
     "estimatedWords": 69575,
@@ -410,16 +442,16 @@
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/9002334-L.jpg",
     "description": null,
-    "publishedYear": 2001,
+    "publishedYear": 2014,
     "isbn": "9780553418286",
     "createdAt": "2026-06-29T14:00:13.247Z",
-    "updatedAt": "2026-06-29T14:00:13.247Z"
+    "updatedAt": "2026-09-28T18:29:28.620Z"
   },
   {
     "id": "cmqzabb8c001lum5092nk0u66",
     "title": "The Bazaar of Bad Dreams",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 600,
     "estimatedWords": 165000,
     "rating": 3.6,
@@ -429,12 +461,12 @@
     "publishedYear": 2015,
     "isbn": "9781410483768",
     "createdAt": "2026-06-29T13:59:50.941Z",
-    "updatedAt": "2026-06-29T13:59:50.941Z"
+    "updatedAt": "2026-09-28T18:29:29.612Z"
   },
   {
     "id": "cmqdo8udw001jum504o7du2ly",
     "title": "Necronomicon",
-    "author": "H.P. Lovecraft",
+    "author": "H. P. Lovecraft",
     "genre": "Horror",
     "pages": 880,
     "estimatedWords": 242000,
@@ -445,29 +477,29 @@
     "publishedYear": 2008,
     "isbn": "0575081570",
     "createdAt": "2026-06-14T10:58:54.548Z",
-    "updatedAt": "2026-06-14T10:58:54.548Z"
+    "updatedAt": "2026-09-28T18:29:28.575Z"
   },
   {
     "id": "cmqdo7olk001ium50dzn7o4hz",
     "title": "Meditations",
     "author": "Marcus Aurelius",
-    "genre": "Self-Help",
+    "genre": "Philosophy",
     "pages": 203,
     "estimatedWords": 55825,
     "rating": 4.2,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/211529-L.jpg",
     "description": null,
-    "publishedYear": 1626,
+    "publishedYear": null,
     "isbn": "1978493436",
     "createdAt": "2026-06-14T10:58:00.392Z",
-    "updatedAt": "2026-06-14T10:58:00.392Z"
+    "updatedAt": "2026-09-28T18:29:29.390Z"
   },
   {
     "id": "cmqdo4zqk001hum50is5ynl6n",
     "title": "Pay the Piper",
     "author": "George A. Romero",
-    "genre": "Unknown",
+    "genre": "Horror",
     "pages": 384,
     "estimatedWords": 105600,
     "rating": 3.8,
@@ -477,29 +509,29 @@
     "publishedYear": 2024,
     "isbn": "9781454950899",
     "createdAt": "2026-06-14T10:55:54.860Z",
-    "updatedAt": "2026-06-14T10:55:54.860Z"
+    "updatedAt": "2026-09-28T18:29:29.244Z"
   },
   {
     "id": "cmqdo4apl001gum50y6uzctfx",
     "title": "The Odyssey",
-    "author": "Όμηρος",
-    "genre": "Greek Epic Poetry",
+    "author": "Homer",
+    "genre": "Classics",
     "pages": 352,
     "estimatedWords": 96800,
     "rating": 4.1,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/12474938-L.jpg",
     "description": null,
-    "publishedYear": 1946,
+    "publishedYear": null,
     "isbn": "9781177541923",
     "createdAt": "2026-06-14T10:55:22.425Z",
-    "updatedAt": "2026-06-14T10:55:22.425Z"
+    "updatedAt": "2026-09-28T18:29:28.419Z"
   },
   {
     "id": "cmqdo1qwb001fum50bpzw3r5d",
     "title": "Coming Up for Air",
     "author": "George Orwell",
-    "genre": "Married People",
+    "genre": "Classics",
     "pages": 278,
     "estimatedWords": 76450,
     "rating": 4.4,
@@ -509,7 +541,7 @@
     "publishedYear": 1939,
     "isbn": "9798466851564",
     "createdAt": "2026-06-14T10:53:23.435Z",
-    "updatedAt": "2026-06-14T10:53:23.435Z"
+    "updatedAt": "2026-09-28T18:29:29.267Z"
   },
   {
     "id": "cmqdo1hp5001eum502uz8jf3y",
@@ -531,7 +563,7 @@
     "id": "cmqdo1a2u001dum50w5n7whle",
     "title": "Animal Farm",
     "author": "George Orwell",
-    "genre": "Science Fiction",
+    "genre": "Classics",
     "pages": 128,
     "estimatedWords": 35200,
     "rating": 4.2,
@@ -541,87 +573,87 @@
     "publishedYear": 1945,
     "isbn": "9798454468835",
     "createdAt": "2026-06-14T10:53:01.639Z",
-    "updatedAt": "2026-06-14T10:53:01.639Z"
+    "updatedAt": "2026-09-28T18:29:29.255Z"
   },
   {
     "id": "cmqdo0pyl001cum50f1dmiwii",
     "title": "The History of Mr. Polly",
     "author": "H. G. Wells",
-    "genre": "Science Fiction",
+    "genre": "Classics",
     "pages": 256,
     "estimatedWords": 70400,
     "rating": 3.8,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/8243337-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12621709-L.jpg",
     "description": null,
-    "publishedYear": 1900,
+    "publishedYear": 1910,
     "isbn": "9781388668983",
     "createdAt": "2026-06-14T10:52:35.565Z",
-    "updatedAt": "2026-06-14T10:52:35.565Z"
+    "updatedAt": "2026-09-28T18:29:29.119Z"
   },
   {
     "id": "cmqdnyr8r001bum50vxfdsncl",
     "title": "The Picture of Dorian Gray",
     "author": "Oscar Wilde",
-    "genre": "Fantasy",
+    "genre": "Classics",
     "pages": 246,
     "estimatedWords": 67650,
     "rating": 4.1,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/14314858-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15156805-L.jpg",
     "description": null,
     "publishedYear": 1890,
     "isbn": "9798713573324",
     "createdAt": "2026-06-14T10:51:03.915Z",
-    "updatedAt": "2026-06-14T10:51:03.915Z"
+    "updatedAt": "2026-09-28T18:29:28.981Z"
   },
   {
     "id": "cmqdny3nl001aum503ex9oddp",
     "title": "Sense and Sensibility",
     "author": "Jane Austen",
-    "genre": "History",
+    "genre": "Classics",
     "pages": 352,
     "estimatedWords": 96800,
     "rating": 4.4,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/9278292-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15177258-L.jpg",
     "description": null,
     "publishedYear": 1811,
-    "isbn": "1407213520",
+    "isbn": "9781502372963",
     "createdAt": "2026-06-14T10:50:33.346Z",
-    "updatedAt": "2026-06-14T10:50:33.346Z"
+    "updatedAt": "2026-09-28T18:29:29.055Z"
   },
   {
     "id": "cmqdnwz140019um50510jvfg1",
     "title": "The Fall of the House of Usher",
     "author": "Edgar Allan Poe",
-    "genre": "Romance",
+    "genre": "Horror",
     "pages": 38,
     "estimatedWords": 10450,
     "rating": 4.1,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/11838138-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15207640-L.jpg",
     "description": null,
-    "publishedYear": 1704,
-    "isbn": "1549691228",
+    "publishedYear": 1839,
+    "isbn": "9781318795970",
     "createdAt": "2026-06-14T10:49:40.696Z",
-    "updatedAt": "2026-06-14T10:49:40.696Z"
+    "updatedAt": "2026-09-28T18:29:28.994Z"
   },
   {
     "id": "cmqdnw0000018um503wunljhd",
-    "title": "Dostoyevsky's Notes from the underground",
-    "author": "Leslie Shepard",
-    "genre": "Juvenile Literature",
-    "pages": 89,
-    "estimatedWords": 24475,
+    "title": "Notes from Underground",
+    "author": "Fyodor Dostoevsky",
+    "genre": "Classics",
+    "pages": 136,
+    "estimatedWords": 37400,
     "rating": 3.9,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/6645364-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14830484-L.jpg",
     "description": null,
-    "publishedYear": 1965,
-    "isbn": null,
+    "publishedYear": 1864,
+    "isbn": "9780679734529",
     "createdAt": "2026-06-14T10:48:55.297Z",
-    "updatedAt": "2026-06-14T10:48:55.297Z"
+    "updatedAt": "2026-09-28T18:29:28.336Z"
   },
   {
     "id": "cmqdnuxt20017um506wh88von",
@@ -632,82 +664,82 @@
     "estimatedWords": 46200,
     "rating": 4.4,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/968312-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14768386-L.jpg",
     "description": null,
     "publishedYear": 1896,
-    "isbn": "9798513438007",
+    "isbn": "9780141921129",
     "createdAt": "2026-06-14T10:48:05.799Z",
-    "updatedAt": "2026-06-14T10:48:05.799Z"
+    "updatedAt": "2026-09-28T18:29:28.853Z"
   },
   {
     "id": "cmqdnur5o0016um50uucxlytq",
     "title": "The Invisible Man",
     "author": "H. G. Wells",
-    "genre": "Fantasy",
+    "genre": "Science Fiction",
     "pages": 170,
     "estimatedWords": 46750,
     "rating": 4,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/6419199-L.jpg",
     "description": null,
-    "publishedYear": 0,
+    "publishedYear": 1897,
     "isbn": "1518848591",
     "createdAt": "2026-06-14T10:47:57.180Z",
-    "updatedAt": "2026-06-14T10:47:57.180Z"
+    "updatedAt": "2026-09-28T18:29:29.295Z"
   },
   {
     "id": "cmqdnukzi0015um50jrm69y9h",
     "title": "The Time Machine",
     "author": "H. G. Wells",
-    "genre": "Fantasy",
+    "genre": "Science Fiction",
     "pages": 120,
     "estimatedWords": 33000,
     "rating": 4.1,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/9009316-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/9008368-L.jpg",
     "description": null,
     "publishedYear": 1895,
-    "isbn": "9781434452399",
+    "isbn": "9780451470706",
     "createdAt": "2026-06-14T10:47:49.183Z",
-    "updatedAt": "2026-06-14T10:47:49.183Z"
+    "updatedAt": "2026-09-28T18:29:28.874Z"
   },
   {
     "id": "cmqdnufdz0014um50jhq48ghz",
     "title": "The War of the Worlds",
     "author": "H. G. Wells",
-    "genre": "Fantasy",
+    "genre": "Science Fiction",
     "pages": 206,
     "estimatedWords": 56650,
     "rating": 4,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/36314-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15067080-L.jpg",
     "description": null,
-    "publishedYear": 0,
-    "isbn": "1613825560",
+    "publishedYear": 1898,
+    "isbn": "9780486295060",
     "createdAt": "2026-06-14T10:47:41.927Z",
-    "updatedAt": "2026-06-14T10:47:41.927Z"
+    "updatedAt": "2026-09-28T18:29:28.894Z"
   },
   {
     "id": "cmqdntwy20013um50e9w7c6dl",
     "title": "Dandelion Wine",
     "author": "Ray Bradbury",
-    "genre": "Fantasy",
+    "genre": "Classics",
     "pages": 232,
     "estimatedWords": 63800,
     "rating": 3.6,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/14831327-L.jpg",
     "description": null,
-    "publishedYear": 1946,
+    "publishedYear": 1957,
     "isbn": "8445076043",
     "createdAt": "2026-06-14T10:47:18.026Z",
-    "updatedAt": "2026-06-14T10:47:18.026Z"
+    "updatedAt": "2026-09-28T18:29:29.402Z"
   },
   {
     "id": "cmqdnto5w0012um50w489tb73",
     "title": "Something Wicked This Way Comes",
     "author": "Ray Bradbury",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 278,
     "estimatedWords": 76450,
     "rating": 4.3,
@@ -717,29 +749,29 @@
     "publishedYear": 1962,
     "isbn": "9781887368230",
     "createdAt": "2026-06-14T10:47:06.644Z",
-    "updatedAt": "2026-06-14T10:47:06.644Z"
+    "updatedAt": "2026-09-28T18:29:29.435Z"
   },
   {
     "id": "cmqdnsunj0011um50iwhmrl99",
-    "title": "White Nights and other stories [7 stories]",
-    "author": "Фёдор Михайлович Достоевский",
-    "genre": "Fantasy",
+    "title": "White Nights and Other Stories",
+    "author": "Fyodor Dostoevsky",
+    "genre": "Classics",
     "pages": 296,
     "estimatedWords": 81400,
     "rating": 3.9,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/8221238-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15201170-L.jpg",
     "description": null,
     "publishedYear": 1848,
-    "isbn": "9798583042500",
+    "isbn": "9789815266290",
     "createdAt": "2026-06-14T10:46:28.400Z",
-    "updatedAt": "2026-06-14T10:46:28.400Z"
+    "updatedAt": "2026-09-28T18:29:28.368Z"
   },
   {
     "id": "cmqdnqrw90010um50du0btggc",
     "title": "Never Split the Difference",
     "author": "Chris Voss",
-    "genre": "Memoir",
+    "genre": "Business",
     "pages": 288,
     "estimatedWords": 79200,
     "rating": 4.1,
@@ -749,55 +781,55 @@
     "publishedYear": 2016,
     "isbn": "0062407813",
     "createdAt": "2026-06-14T10:44:51.514Z",
-    "updatedAt": "2026-06-14T10:44:51.514Z"
+    "updatedAt": "2026-09-28T18:29:29.220Z"
   },
   {
     "id": "cmqdnq9hv000zum5017lpq76d",
     "title": "The Vampire Lestat",
     "author": "Anne Rice",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 606,
     "estimatedWords": 166650,
     "rating": 4,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/8579529-L.jpg",
     "description": null,
-    "publishedYear": 1986,
+    "publishedYear": 1985,
     "isbn": "0751598313",
     "createdAt": "2026-06-14T10:44:27.667Z",
-    "updatedAt": "2026-06-14T10:44:27.667Z"
+    "updatedAt": "2026-09-28T18:29:29.208Z"
   },
   {
     "id": "cmqdnppgm000yum50vwxre037",
     "title": "Of Mice and Men",
     "author": "John Steinbeck",
-    "genre": "Fantasy",
+    "genre": "Classics",
     "pages": 119,
     "estimatedWords": 32725,
     "rating": 3.8,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/14319003-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15153901-L.jpg",
     "description": null,
     "publishedYear": 1937,
-    "isbn": "1440633908",
+    "isbn": "9781405964098",
     "createdAt": "2026-06-14T10:44:01.702Z",
-    "updatedAt": "2026-06-14T10:44:01.702Z"
+    "updatedAt": "2026-09-28T18:29:29.074Z"
   },
   {
     "id": "cmqdnp5cj000xum50ls2bzt0m",
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
-    "genre": "History",
+    "genre": "Classics",
     "pages": 185,
     "estimatedWords": 50875,
     "rating": 3.9,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/10590366-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13853193-L.jpg",
     "description": null,
-    "publishedYear": 1920,
-    "isbn": "9798511718255",
+    "publishedYear": 1925,
+    "isbn": "9781716075735",
     "createdAt": "2026-06-14T10:43:35.635Z",
-    "updatedAt": "2026-06-14T10:43:35.635Z"
+    "updatedAt": "2026-09-28T18:29:29.035Z"
   },
   {
     "id": "cmqdnol3t000wum50kaja2wat",
@@ -819,7 +851,7 @@
     "id": "cmqdnn7yj000vum501k6ii9av",
     "title": "Cujo",
     "author": "Stephen King",
-    "genre": "History",
+    "genre": "Horror",
     "pages": 352,
     "estimatedWords": 96800,
     "rating": 4,
@@ -829,7 +861,7 @@
     "publishedYear": 1981,
     "isbn": "9782277215905",
     "createdAt": "2026-06-14T10:42:05.707Z",
-    "updatedAt": "2026-06-14T10:42:05.707Z"
+    "updatedAt": "2026-09-28T18:29:29.527Z"
   },
   {
     "id": "cmqdnmy0z000uum502k0qlwdf",
@@ -897,7 +929,7 @@
   },
   {
     "id": "cmqdnlnit000qum50gg7m16vu",
-    "title": "The dark tower",
+    "title": "The Dark Tower",
     "author": "Stephen King",
     "genre": "Fantasy",
     "pages": 818,
@@ -906,16 +938,16 @@
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/14656148-L.jpg",
     "description": null,
-    "publishedYear": 1990,
+    "publishedYear": 2004,
     "isbn": "9785551376378",
     "createdAt": "2026-06-14T10:40:52.565Z",
-    "updatedAt": "2026-06-14T10:40:52.565Z"
+    "updatedAt": "2026-09-28T18:29:28.791Z"
   },
   {
     "id": "cmqdnkyde000pum50jmebw4a8",
     "title": "The Stand",
     "author": "Stephen King",
-    "genre": "Science Fiction",
+    "genre": "Horror",
     "pages": 1153,
     "estimatedWords": 317075,
     "rating": 4.3,
@@ -925,11 +957,11 @@
     "publishedYear": 1978,
     "isbn": "9788845212178",
     "createdAt": "2026-06-14T10:40:19.970Z",
-    "updatedAt": "2026-06-14T10:40:19.970Z"
+    "updatedAt": "2026-09-28T18:29:29.639Z"
   },
   {
     "id": "cmqdnkoie000oum50x0um6c95",
-    "title": "'Salem’s Lot",
+    "title": "'Salem's Lot",
     "author": "Stephen King",
     "genre": "Horror",
     "pages": 488,
@@ -941,13 +973,13 @@
     "publishedYear": 1975,
     "isbn": "9780609810866",
     "createdAt": "2026-06-14T10:40:07.191Z",
-    "updatedAt": "2026-06-14T10:40:07.191Z"
+    "updatedAt": "2026-09-28T18:29:28.772Z"
   },
   {
     "id": "cmqdnkfuh000num504k9dlequ",
     "title": "Pet Sematary",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 422,
     "estimatedWords": 116050,
     "rating": 3.8,
@@ -957,29 +989,29 @@
     "publishedYear": 1983,
     "isbn": "2253151432",
     "createdAt": "2026-06-14T10:39:55.961Z",
-    "updatedAt": "2026-06-14T10:39:55.961Z"
+    "updatedAt": "2026-09-28T18:29:29.598Z"
   },
   {
     "id": "cmqdnk992000mum50zll8tzqf",
     "title": "Misery",
     "author": "Stephen King",
-    "genre": "Science Fiction",
+    "genre": "Horror",
     "pages": 382,
     "estimatedWords": 105050,
     "rating": 4.2,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/8259296-L.jpg",
     "description": null,
-    "publishedYear": 1978,
+    "publishedYear": 1987,
     "isbn": "9789024512799",
     "createdAt": "2026-06-14T10:39:47.414Z",
-    "updatedAt": "2026-06-14T10:39:47.414Z"
+    "updatedAt": "2026-09-28T18:29:29.569Z"
   },
   {
     "id": "cmqdnk2xm000lum50x7igg8jh",
     "title": "Carrie",
     "author": "Stephen King",
-    "genre": "Science Fiction",
+    "genre": "Horror",
     "pages": 255,
     "estimatedWords": 70125,
     "rating": 3.9,
@@ -989,13 +1021,13 @@
     "publishedYear": 1974,
     "isbn": "034077052X",
     "createdAt": "2026-06-14T10:39:39.227Z",
-    "updatedAt": "2026-06-14T10:39:39.227Z"
+    "updatedAt": "2026-09-28T18:29:29.485Z"
   },
   {
     "id": "cmqdnjvlq000kum50lubtnzo5",
     "title": "The Shining",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 506,
     "estimatedWords": 139150,
     "rating": 4.5,
@@ -1005,13 +1037,13 @@
     "publishedYear": 1977,
     "isbn": "9789875668478",
     "createdAt": "2026-06-14T10:39:29.726Z",
-    "updatedAt": "2026-06-14T10:39:29.726Z"
+    "updatedAt": "2026-09-28T18:29:29.626Z"
   },
   {
     "id": "cmqdnjnrd000jum50vj3yttwe",
     "title": "It",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 1168,
     "estimatedWords": 321200,
     "rating": 4.6,
@@ -1021,11 +1053,11 @@
     "publishedYear": 1986,
     "isbn": "6073157061",
     "createdAt": "2026-06-14T10:39:19.561Z",
-    "updatedAt": "2026-06-14T10:39:19.561Z"
+    "updatedAt": "2026-09-28T18:29:29.555Z"
   },
   {
     "id": "cmqdnitmf000ium50nyen1asm",
-    "title": "Boy's life",
+    "title": "Boy's Life",
     "author": "Robert R. McCammon",
     "genre": "Horror",
     "pages": 544,
@@ -1037,7 +1069,7 @@
     "publishedYear": 1991,
     "isbn": "9781560549383",
     "createdAt": "2026-06-14T10:38:40.503Z",
-    "updatedAt": "2026-06-14T10:38:40.503Z"
+    "updatedAt": "2026-09-28T18:29:28.753Z"
   },
   {
     "id": "cmqdnifix000hum50ypwrd9w2",
@@ -1048,18 +1080,18 @@
     "estimatedWords": 146025,
     "rating": 4.8,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/4649991-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13626825-L.jpg",
     "description": null,
     "publishedYear": 1981,
-    "isbn": "0671735632",
+    "isbn": "0751509272",
     "createdAt": "2026-06-14T10:38:22.234Z",
-    "updatedAt": "2026-06-14T10:38:22.234Z"
+    "updatedAt": "2026-09-28T18:29:28.938Z"
   },
   {
     "id": "cmqdnhv6i000gum502o1kqa68",
     "title": "The Sirens of Titan",
     "author": "Kurt Vonnegut",
-    "genre": "Fantasy",
+    "genre": "Science Fiction",
     "pages": 319,
     "estimatedWords": 87725,
     "rating": 3.8,
@@ -1069,29 +1101,29 @@
     "publishedYear": 1959,
     "isbn": "9780385294218",
     "createdAt": "2026-06-14T10:37:55.866Z",
-    "updatedAt": "2026-06-14T10:37:55.866Z"
+    "updatedAt": "2026-09-28T18:29:29.376Z"
   },
   {
     "id": "cmqdnhcty000fum50fapbzhq2",
-    "title": "Mikhail Bulgakov's The Master and Margarita",
-    "author": "Andrzej Klimowski",
-    "genre": "Horror",
-    "pages": 127,
-    "estimatedWords": 34925,
+    "title": "The Master and Margarita",
+    "author": "Mikhail Bulgakov",
+    "genre": "Classics",
+    "pages": 386,
+    "estimatedWords": 106150,
     "rating": 4.7,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/14429612-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15013644-L.jpg",
     "description": null,
-    "publishedYear": 2008,
-    "isbn": "0955285674",
+    "publishedYear": 1967,
+    "isbn": null,
     "createdAt": "2026-06-14T10:37:32.086Z",
-    "updatedAt": "2026-06-14T10:37:32.086Z"
+    "updatedAt": "2026-09-28T18:29:28.294Z"
   },
   {
     "id": "cmqdng3sw000eum50zrw27av3",
     "title": "Lord of the Flies",
     "author": "William Golding",
-    "genre": "Mystery & Thriller",
+    "genre": "Classics",
     "pages": 243,
     "estimatedWords": 66825,
     "rating": 4.4,
@@ -1101,12 +1133,12 @@
     "publishedYear": 1954,
     "isbn": "9783140412179",
     "createdAt": "2026-06-14T10:36:33.728Z",
-    "updatedAt": "2026-06-14T10:36:33.728Z"
+    "updatedAt": "2026-09-28T18:29:29.653Z"
   },
   {
     "id": "cmqdnewo5000dum50u59exgjh",
     "title": "Why We Sleep",
-    "author": "Matthew P. Walker",
+    "author": "Matthew Walker",
     "genre": "Psychology",
     "pages": 360,
     "estimatedWords": 99000,
@@ -1117,13 +1149,13 @@
     "publishedYear": 2017,
     "isbn": "1501144316",
     "createdAt": "2026-06-14T10:35:37.829Z",
-    "updatedAt": "2026-06-14T10:35:37.829Z"
+    "updatedAt": "2026-09-28T18:29:28.597Z"
   },
   {
     "id": "cmqdnee5a000cum508u0jgtsv",
     "title": "One Flew Over the Cuckoo's Nest",
     "author": "Ken Kesey",
-    "genre": "Allegories",
+    "genre": "Classics",
     "pages": 311,
     "estimatedWords": 85525,
     "rating": 3.7,
@@ -1133,23 +1165,23 @@
     "publishedYear": 1962,
     "isbn": "9789059365841",
     "createdAt": "2026-06-14T10:35:13.822Z",
-    "updatedAt": "2026-06-14T10:35:13.822Z"
+    "updatedAt": "2026-09-28T18:29:29.364Z"
   },
   {
     "id": "cmqdndws4000bum50txlsg0zl",
     "title": "Nineteen Eighty-Four",
     "author": "George Orwell",
-    "genre": "Fantasy",
+    "genre": "Science Fiction",
     "pages": 318,
     "estimatedWords": 87450,
     "rating": 4,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/9267242-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15257353-L.jpg",
     "description": null,
     "publishedYear": 1949,
     "isbn": "9781784878979",
     "createdAt": "2026-06-14T10:34:51.316Z",
-    "updatedAt": "2026-06-14T10:34:51.316Z"
+    "updatedAt": "2026-09-28T18:29:28.960Z"
   },
   {
     "id": "cmqdndljo000aum5086in3z51",
@@ -1169,9 +1201,9 @@
   },
   {
     "id": "cmqdncxpz0009um50aj9970mf",
-    "title": "Metamorphosis",
+    "title": "The Metamorphosis",
     "author": "Franz Kafka",
-    "genre": "Fantasy",
+    "genre": "Classics",
     "pages": 88,
     "estimatedWords": 24200,
     "rating": 3.9,
@@ -1181,43 +1213,43 @@
     "publishedYear": 1915,
     "isbn": "1945644931",
     "createdAt": "2026-06-14T10:34:05.879Z",
-    "updatedAt": "2026-06-14T10:34:16.397Z"
+    "updatedAt": "2026-09-28T18:29:28.733Z"
   },
   {
     "id": "cmqdnceg10008um50zf6dftbl",
-    "title": "Frakenstein",
+    "title": "Frankenstein",
     "author": "Mary Shelley",
-    "genre": "Unknown",
+    "genre": "Horror",
     "pages": 448,
     "estimatedWords": 123200,
     "rating": 4.2,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/13570635-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/12356249-L.jpg",
     "description": null,
-    "publishedYear": 2002,
+    "publishedYear": 1818,
     "isbn": "846630407X",
     "createdAt": "2026-06-14T10:33:40.897Z",
-    "updatedAt": "2026-06-14T10:33:40.897Z"
+    "updatedAt": "2026-09-28T18:29:28.521Z"
   },
   {
     "id": "cmqdnc1ep0007um50x1qf1e5j",
     "title": "Dracula",
     "author": "Bram Stoker",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 408,
     "estimatedWords": 112200,
     "rating": 4.5,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/12216503-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/14746089-L.jpg",
     "description": null,
     "publishedYear": 1897,
-    "isbn": "9798450124131",
+    "isbn": "9781665965750",
     "createdAt": "2026-06-14T10:33:24.001Z",
-    "updatedAt": "2026-06-14T10:33:24.001Z"
+    "updatedAt": "2026-09-28T18:29:28.830Z"
   },
   {
     "id": "cmqdnbq7c0006um50wpt2499n",
-    "title": "Interview With the Vampire",
+    "title": "Interview with the Vampire",
     "author": "Anne Rice",
     "genre": "Horror",
     "pages": 349,
@@ -1229,7 +1261,7 @@
     "publishedYear": 1976,
     "isbn": "8440641494",
     "createdAt": "2026-06-14T10:33:09.480Z",
-    "updatedAt": "2026-06-14T10:33:09.480Z"
+    "updatedAt": "2026-09-28T18:29:28.692Z"
   },
   {
     "id": "cmqdnb9zs0005um50duu9hkde",
@@ -1251,21 +1283,21 @@
     "id": "cmqdnav9i0004um50tll1e5iq",
     "title": "Swan Song",
     "author": "Robert R. McCammon",
-    "genre": "Fantasy",
+    "genre": "Horror",
     "pages": 956,
     "estimatedWords": 262900,
     "rating": 4.4,
     "dateFinished": null,
     "coverUrl": "https://covers.openlibrary.org/b/id/1405021-L.jpg",
     "description": null,
-    "publishedYear": 1978,
+    "publishedYear": 1987,
     "isbn": "9780671692650",
     "createdAt": "2026-06-14T10:32:29.382Z",
-    "updatedAt": "2026-06-14T10:32:29.382Z"
+    "updatedAt": "2026-09-28T18:29:29.446Z"
   },
   {
     "id": "cmqdnadxp0003um50qpple80z",
-    "title": "The Hunger Games Trilogy (Hunger Games / Catching Fire / Mockingjay)",
+    "title": "The Hunger Games Trilogy",
     "author": "Suzanne Collins",
     "genre": "Science Fiction",
     "pages": 1108,
@@ -1277,13 +1309,13 @@
     "publishedYear": 2010,
     "isbn": "9781338323641",
     "createdAt": "2026-06-14T10:32:06.925Z",
-    "updatedAt": "2026-06-14T10:32:06.925Z"
+    "updatedAt": "2026-09-28T18:29:28.811Z"
   },
   {
     "id": "cmqdn9isx0002um50ke3m4255",
     "title": "To Kill a Mockingbird",
     "author": "Harper Lee",
-    "genre": "Fiction",
+    "genre": "Classics",
     "pages": 320,
     "estimatedWords": 88000,
     "rating": 3.6,
@@ -1293,13 +1325,13 @@
     "publishedYear": 1960,
     "isbn": "9789999589604",
     "createdAt": "2026-06-14T10:31:26.577Z",
-    "updatedAt": "2026-06-14T10:31:26.577Z"
+    "updatedAt": "2026-09-28T18:29:29.318Z"
   },
   {
     "id": "cmqdn8wme0001um50azskxdas",
     "title": "The Exorcist",
     "author": "William Peter Blatty",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 400,
     "estimatedWords": 110000,
     "rating": 4.1,
@@ -1309,23 +1341,7 @@
     "publishedYear": 1971,
     "isbn": "9788422606611",
     "createdAt": "2026-06-14T10:30:57.830Z",
-    "updatedAt": "2026-06-14T10:30:57.830Z"
-  },
-  {
-    "id": "cmqdl39bb000humfodv9c8bts",
-    "title": "1984",
-    "author": "George Orwell",
-    "genre": "Dystopian Fiction",
-    "pages": 328,
-    "estimatedWords": 90200,
-    "rating": 4.7,
-    "dateFinished": "2021-12-10T00:00:00.000Z",
-    "coverUrl": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
-    "description": "A chilling portrait of a totalitarian society under perpetual surveillance, where Big Brother watches everyone.",
-    "publishedYear": 1949,
-    "isbn": "9780451524935",
-    "createdAt": "2026-06-14T09:30:35.111Z",
-    "updatedAt": "2026-06-14T09:30:35.111Z"
+    "updatedAt": "2026-09-28T18:29:29.665Z"
   },
   {
     "id": "cmqdl39av000dumfodtwz9h6d",

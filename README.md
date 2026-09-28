@@ -1,6 +1,18 @@
 # Index — Reading Metrics Dashboard
 
-A personal reading analytics dashboard built with a Neubrutalist design. Tracks books, visualises reading habits, and deploys as a fully static site with no backend required on the live version.
+A personal reading analytics dashboard with a calm, dark "Forest Night" design (see `Instructions/DESIGN.md`). Tracks books, visualises reading habits, and deploys as a fully static site with no backend required on the live version.
+
+---
+
+## Screenshots
+
+**Dashboard:** headline totals, top author, featured book, genre and author breakdowns, book length and rating spread.
+
+![Booked dashboard overview](docs/screenshots/dashboard.png)
+
+**Library:** searchable, filterable table of every book, with a Books / Authors toggle.
+
+![Booked library, book view](docs/screenshots/library.png)
 
 ---
 
@@ -155,6 +167,7 @@ npm run build
 
 ```
 reading-metrics/
+├── docs/screenshots/        README images
 ├── client/                  React frontend
 │   ├── public/data/         Exported JSON (committed — live site reads from here)
 │   ├── src/features/        Dashboard, books, admin, charts

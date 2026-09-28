@@ -1,99 +1,103 @@
+import type { ReactNode } from "react";
 import { useStats } from "./hooks/useStats";
-import { HeroStats } from "./HeroStats";
+import { useBooks } from "../books/hooks/useBooks";
+import { HeadlineTotals } from "./HeadlineTotals";
 import { FeaturedAuthor } from "./FeaturedAuthor";
 import { FeaturedBook } from "./FeaturedBook";
-import { InsightCards } from "./InsightCards";
-import { GenreBarChart } from "../charts/GenreBarChart";
-import { AuthorBarChart } from "../charts/AuthorBarChart";
+import { DistributionPanels } from "./DistributionPanels";
+import { QuickInsights } from "./QuickInsights";
+import { GenreDonut } from "../charts/GenreDonut";
+import { TopAuthors } from "../charts/TopAuthors";
+import { Panel } from "../../components/ui/Panel";
+import { Skeleton } from "../../components/ui/Skeleton";
+import { plural } from "../../lib/format";
 
-function SkeletonCard({ className = "" }: { className?: string }) {
+const IS_STATIC = import.meta.env.VITE_STATIC_MODE === "true";
+
+const row = "grid gap-4 lg:grid-cols-2";
+
+function Message({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div
-      className={`border-3 border-black bg-gray-100 animate-pulse ${className}`}
-      style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-    />
+    <Panel className="mx-auto mt-16 max-w-md text-center">
+      <h1 className="font-serif text-title text-text">{title}</h1>
+      <p className="mt-2 text-body text-text-muted">{children}</p>
+    </Panel>
   );
 }
 
 export function Dashboard() {
   const { data: stats, isLoading, error } = useStats();
+  const books = useBooks();
 
   if (isLoading) {
     return (
-      <div className="flex flex-col gap-3 p-4">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <SkeletonCard key={i} className="h-20" />
-          ))}
+      <div className="flex flex-col gap-4" aria-busy="true">
+        <Skeleton className="mb-2 h-10 w-48 border-0" />
+        <div className={row}>
+          <Skeleton className="h-[240px]" />
+          <Skeleton className="h-[240px]" />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <SkeletonCard className="h-40" />
-          <SkeletonCard className="h-40" />
+        <div className={row}>
+          <Skeleton className="h-[300px]" />
+          <Skeleton className="h-[300px]" />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <SkeletonCard className="h-48" />
-          <SkeletonCard className="h-48" />
-        </div>
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <SkeletonCard key={i} className="h-20" />
-          ))}
-        </div>
+        <Skeleton className="h-[104px]" />
       </div>
     );
   }
 
   if (error) {
-    return (
-      <div className="p-6 flex items-center justify-center min-h-64">
-        <div
-          className="border-3 border-black bg-[#FF5252] p-6 text-white max-w-md"
-          style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-        >
-          <h2 className="font-black text-xl mb-2">Failed to load dashboard</h2>
-          <p className="text-sm font-semibold opacity-80">{error.message}</p>
-        </div>
-      </div>
-    );
+    return <Message title="Couldn’t load the dashboard">{error.message}</Message>;
   }
 
   if (!stats || stats.totalBooks === 0) {
     return (
-      <div className="p-6 flex items-center justify-center min-h-64">
-        <div
-          className="border-3 border-black bg-[#FFEB3B] p-8 text-black max-w-md text-center"
-          style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-        >
-          <div className="text-5xl mb-4">
-            <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" strokeWidth="2" className="mx-auto">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-            </svg>
-          </div>
-          <h2 className="font-black text-2xl mb-2">No books yet</h2>
-          <p className="text-sm font-semibold opacity-70">
-            Head to Admin to add your first book and start tracking your reading.
-          </p>
-        </div>
-      </div>
+      <Message title="No books yet">
+        {IS_STATIC
+          ? "Nothing has been added to this library yet."
+          : "Head to Admin to add your first book and start tracking your reading."}
+      </Message>
     );
   }
 
-  return (
-    <div className="flex flex-col gap-4 p-5">
-      <HeroStats stats={stats} />
+  const ratedCount = books.data?.filter((b) => b.rating != null).length;
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  return (
+    <div className="flex flex-col gap-4">
+      <header className="mb-2 flex flex-col gap-5">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+          <h1 className="font-serif text-title text-text">Overview</h1>
+          <p className="text-body text-text-muted tabular-nums">
+            {plural(stats.totalBooks, "book")} · {plural(stats.authorBreakdown.length, "author")} ·{" "}
+            {plural(stats.genresExplored, "genre")}
+          </p>
+        </div>
+        {/* Under 800px the sidebar becomes a top bar, so the totals move here. */}
+        <div className="border-y border-border-subtle py-4 md:hidden">
+          <HeadlineTotals stats={stats} layout="row" />
+        </div>
+      </header>
+
+      <div className={row}>
         <FeaturedAuthor stats={stats} />
         <FeaturedBook stats={stats} />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <GenreBarChart data={stats.genreBreakdown} height={200} />
-        <AuthorBarChart data={stats.authorBreakdown} height={200} />
+      <div className={row}>
+        <GenreDonut data={stats.genreBreakdown} totalBooks={stats.totalBooks} />
+        <TopAuthors data={stats.authorBreakdown} />
       </div>
 
-      <InsightCards stats={stats} />
+      <div className={row}>
+        <DistributionPanels
+          books={books.data}
+          isLoading={books.isLoading}
+          error={books.error}
+          averageRating={stats.averageRating}
+        />
+      </div>
+
+      <QuickInsights stats={stats} ratedCount={ratedCount} />
     </div>
   );
 }

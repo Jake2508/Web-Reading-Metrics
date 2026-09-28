@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import type { Stats } from "../../../../shared/src/schemas";
-import { Badge } from "../../components/ui/Badge";
+import { Panel } from "../../components/ui/Panel";
+import { Eyebrow } from "../../components/ui/Eyebrow";
+import { Meter } from "../../components/ui/Meter";
+import { formatInt } from "../../lib/format";
+import { useReducedMotion } from "../../lib/useReducedMotion";
 
 interface FeaturedAuthorProps {
   stats: Stats;
@@ -9,10 +13,35 @@ interface FeaturedAuthorProps {
 
 const AUTO_ADVANCE_MS = 4000;
 
+function Chevron({ direction }: { direction: "left" | "right" }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points={direction === "left" ? "15 18 9 12 15 6" : "9 18 15 12 9 6"} />
+    </svg>
+  );
+}
+
+const pagerButton =
+  "flex size-7 cursor-pointer items-center justify-center rounded-md text-text-muted transition-colors duration-150 ease-out hover:text-brass";
+
 export function FeaturedAuthor({ stats }: FeaturedAuthorProps) {
   const authors = stats.authorBreakdown.slice(0, 3);
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const reducedMotion = useReducedMotion();
+  // Auto-advance pauses while the panel is hovered or focused, and is off under reduced motion.
+  const paused = hovered || focused || reducedMotion;
 
   useEffect(() => {
     if (paused || authors.length <= 1) return;
@@ -20,16 +49,7 @@ export function FeaturedAuthor({ stats }: FeaturedAuthorProps) {
     return () => clearInterval(id);
   }, [paused, authors.length]);
 
-  if (authors.length === 0) {
-    return (
-      <div
-        className="border-3 border-black p-6 bg-[#FFEB3B] flex items-center justify-center h-full"
-        style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-      >
-        <p className="font-bold text-black/60">No author data yet</p>
-      </div>
-    );
-  }
+  if (authors.length === 0) return null;
 
   const author = authors[index];
   const percentage = Math.round((author.count / stats.totalBooks) * 100);
@@ -38,86 +58,71 @@ export function FeaturedAuthor({ stats }: FeaturedAuthorProps) {
   const libraryLink = `/books?author=${encodeURIComponent(author.author)}`;
 
   return (
-    <div
-      className="border-3 border-black bg-[#FFEB3B] p-6 flex flex-col gap-4 h-full"
-      style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+    <Panel
+      className="flex flex-col justify-between gap-[18px]"
+      aria-labelledby="top-author-heading"
+      aria-roledescription="carousel"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocused(false);
+      }}
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <span className="text-xs font-black uppercase tracking-widest text-black/50">
-            Top Authors
-          </span>
-          <Link
-            to={libraryLink}
-            className="block text-3xl font-black text-black mt-1 leading-tight hover:underline decoration-2 underline-offset-2"
-          >
-            {author.author}
-          </Link>
-        </div>
-        <Badge color="black">#{index + 1}</Badge>
+      <div className="flex items-center justify-between gap-4">
+        <h2 id="top-author-heading">
+          <Eyebrow tone="brass">Top author · No. {index + 1}</Eyebrow>
+        </h2>
+        {authors.length > 1 && (
+          <div className="-my-1 -mr-1.5 flex items-center gap-1 text-meta text-text-muted tabular-nums">
+            <button type="button" aria-label="Previous author" onClick={() => goTo(index - 1)} className={pagerButton}>
+              <Chevron direction="left" />
+            </button>
+            <span>
+              {index + 1} / {authors.length}
+            </span>
+            <button type="button" aria-label="Next author" onClick={() => goTo(index + 1)} className={pagerButton}>
+              <Chevron direction="right" />
+            </button>
+          </div>
+        )}
       </div>
 
-      <div className="flex gap-3 mt-auto">
+      <div key={author.author} className="flex animate-fade-in flex-col gap-[18px]" aria-live={paused ? "polite" : "off"}>
         <Link
           to={libraryLink}
-          className="border-2 border-black bg-white p-3 flex-1 text-center block hover:bg-[#FFEB3B] transition-colors"
+          className="self-start rounded-sm font-serif text-display text-text transition-colors duration-150 ease-out hover:text-brass"
         >
-          <div className="text-2xl font-black text-black">{author.count}</div>
-          <div className="text-xs font-bold text-black/60 uppercase mt-0.5">Books</div>
+          {author.author}
         </Link>
-        <div className="border-2 border-black bg-white p-3 flex-1 text-center">
-          <div className="text-2xl font-black text-black">{percentage}%</div>
-          <div className="text-xs font-bold text-black/60 uppercase mt-0.5">Of Library</div>
-        </div>
-        <div className="border-2 border-black bg-white p-3 flex-1 text-center">
-          <div className="text-2xl font-black text-black">{avgPages}</div>
-          <div className="text-xs font-bold text-black/60 uppercase mt-0.5">Avg Pages</div>
-        </div>
-      </div>
 
-      <div>
-        <div className="text-xs font-bold text-black/50 uppercase mb-1.5">Library Share</div>
-        <div className="h-4 border-2 border-black bg-white overflow-hidden">
-          <div
-            className="h-full bg-black transition-all"
-            style={{ width: `${percentage}%` }}
-          />
-        </div>
-      </div>
-
-      {authors.length > 1 && (
-        <div className="flex items-center justify-center gap-3 -mb-1">
-          <button
-            type="button"
-            aria-label="Previous author"
-            onClick={() => goTo(index - 1)}
-            className="text-black/40 hover:text-black font-black text-base leading-none transition-colors px-1"
-          >
-            ‹
-          </button>
-          <div className="flex gap-1.5">
-            {authors.map((a, i) => (
-              <button
-                key={a.author}
-                type="button"
-                aria-label={`Show ${a.author}`}
-                onClick={() => goTo(i)}
-                className={`w-2 h-2 border border-black transition-colors ${i === index ? "bg-black" : "bg-white"}`}
-              />
-            ))}
+        <dl className="grid grid-cols-3 gap-4 border-t border-border pt-4">
+          <div className="flex flex-col gap-1">
+            <dt>
+              <Eyebrow>Books</Eyebrow>
+            </dt>
+            <dd className="font-serif text-metric text-text tabular-nums">
+              <Link to={libraryLink} className="rounded-sm transition-colors duration-150 ease-out hover:text-brass">
+                {author.count}
+              </Link>
+            </dd>
           </div>
-          <button
-            type="button"
-            aria-label="Next author"
-            onClick={() => goTo(index + 1)}
-            className="text-black/40 hover:text-black font-black text-base leading-none transition-colors px-1"
-          >
-            ›
-          </button>
-        </div>
-      )}
-    </div>
+          <div className="flex flex-col gap-1">
+            <dt>
+              <Eyebrow>Of library</Eyebrow>
+            </dt>
+            <dd className="font-serif text-metric text-text tabular-nums">{percentage}%</dd>
+          </div>
+          <div className="flex flex-col gap-1">
+            <dt>
+              <Eyebrow>Avg pages</Eyebrow>
+            </dt>
+            <dd className="font-serif text-metric text-text tabular-nums">{formatInt(avgPages)}</dd>
+          </div>
+        </dl>
+
+        <Meter value={percentage / 100} fill="brass" track="border" size={6} />
+      </div>
+    </Panel>
   );
 }
