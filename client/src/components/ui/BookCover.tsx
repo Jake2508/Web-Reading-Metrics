@@ -1,50 +1,66 @@
 import { useState } from "react";
+import { coverSrc, coverSrcSet } from "../../lib/covers";
 
 interface BookCoverProps {
   coverUrl: string | null;
   title: string;
-  author: string;
+  /** Sizing only, e.g. "w-11". Height follows the 2:3 aspect ratio. */
   className?: string;
+  /** Rendered width for srcset, e.g. "112px". Small covers keep the default. */
+  sizes?: string;
+  /** Small covers show the title's first letter in the fallback instead of the full title. */
+  compact?: boolean;
+  /** Above-the-fold cover: load eagerly at high fetch priority. */
+  priority?: boolean;
 }
 
-export function BookCover({ coverUrl, title, author, className = "" }: BookCoverProps) {
-  const [failed, setFailed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-
-  if (coverUrl && !failed) {
-    return (
-      <div
-        className={`relative overflow-hidden border-2 border-black ${className}`}
-        style={{ boxShadow: "3px 3px 0 #000" }}
-      >
-        {!loaded && <div className="absolute inset-0 shimmer" />}
-        <img
-          src={coverUrl}
-          alt={`Cover of ${title}`}
-          onLoad={() => setLoaded(true)}
-          onError={() => setFailed(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      </div>
-    );
-  }
-
-  const initials = title.slice(0, 2).toUpperCase();
-  const colors = ["#FFEB3B", "#FF5252", "#2196F3", "#4CAF50", "#FF9800", "#9C27B0"];
-  const colorIndex = (title.charCodeAt(0) + author.charCodeAt(0)) % colors.length;
-  const bg = colors[colorIndex];
+export function BookCover({
+  coverUrl,
+  title,
+  className = "",
+  sizes = "48px",
+  compact = false,
+  priority = false,
+}: BookCoverProps) {
+  // Keyed by URL so a new coverUrl (e.g. while editing in Admin) gets a fresh attempt.
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  const [loadedUrl, setLoadedUrl] = useState<string | null>(null);
+  const showImage = !!coverUrl && failedUrl !== coverUrl;
 
   return (
-    <div
-      className={`flex flex-col items-center justify-center border-2 border-black ${className}`}
-      style={{ backgroundColor: bg, boxShadow: "3px 3px 0 #000" }}
+    // A span (display: block) so covers can sit inside buttons and other phrasing content.
+    <span
+      className={`relative block aspect-[2/3] shrink-0 rounded-cover bg-surface-2 shadow-cover after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:inset-shadow-spine ${className}`}
     >
-      <span className="text-2xl font-black text-black">{initials}</span>
-      <span className="text-xs font-bold text-black/60 mt-1 text-center px-1 leading-tight">
-        {author.split(" ").pop()}
-      </span>
-    </div>
+      {/* The titled fallback doubles as the placeholder while the image loads. */}
+      {compact ? (
+        <span aria-hidden="true" className="flex size-full items-center justify-center font-serif text-panel text-text-muted">
+          {title.trim().charAt(0).toUpperCase() || "?"}
+        </span>
+      ) : (
+        <span
+          aria-hidden={showImage || undefined}
+          className="flex size-full items-center justify-center overflow-hidden p-2 pl-3 text-center font-serif text-meta font-semibold text-text-muted"
+        >
+          <span className="line-clamp-5">{title}</span>
+        </span>
+      )}
+      {showImage && (
+        <img
+          src={coverSrc(coverUrl)}
+          srcSet={coverSrcSet(coverUrl)}
+          sizes={sizes}
+          alt=""
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
+          onLoad={() => setLoadedUrl(coverUrl)}
+          onError={() => setFailedUrl(coverUrl)}
+          className={`absolute inset-0 block size-full rounded-[inherit] object-cover transition-opacity duration-200 ease-out ${
+            loadedUrl === coverUrl ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
+    </span>
   );
 }

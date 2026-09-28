@@ -5,6 +5,7 @@ import type { BookSearchResult, Book } from "../../../../shared/src/schemas";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
 import { BookCover } from "../../components/ui/BookCover";
+import { fieldClass, labelClass } from "../../components/ui/fieldStyles";
 
 const FormSchema = z.object({
   title: z.string().min(1, "Title required"),
@@ -53,17 +54,11 @@ export function BookForm({ prefill, existingBook, onSubmit, onCancel, isSubmitti
 
   const coverUrlValue = watch("coverUrl");
   const titleValue = watch("title");
-  const authorValue = watch("author");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div className="flex gap-4">
-        <BookCover
-          coverUrl={coverUrlValue || null}
-          title={titleValue || "Book"}
-          author={authorValue || "Author"}
-          className="w-24 h-36 flex-shrink-0"
-        />
+        <BookCover coverUrl={coverUrlValue || null} title={titleValue || "Untitled"} className="w-24 self-start" sizes="96px" />
         <div className="flex-1 flex flex-col gap-3">
           <Input label="Title" error={errors.title?.message} {...register("title")} />
           <Input label="Author" error={errors.author?.message} {...register("author")} />
@@ -87,17 +82,20 @@ export function BookForm({ prefill, existingBook, onSubmit, onCancel, isSubmitti
         <Input label="ISBN" {...register("isbn")} />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label className="text-xs font-bold uppercase tracking-wide">Description</label>
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="book-description" className={labelClass}>
+          Description
+        </label>
         <textarea
+          id="book-description"
           {...register("description")}
           rows={3}
-          className="border-2 border-black px-3 py-2 text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-black resize-none"
-          placeholder="Brief description..."
+          className={`${fieldClass} resize-none`}
+          placeholder="Brief description…"
         />
       </div>
 
-      <div className="flex gap-3 pt-2 border-t-2 border-black">
+      <div className="flex gap-3 border-t border-border pt-4">
         <Button type="submit" variant="primary" disabled={isSubmitting} className="flex-1">
           {isSubmitting ? "Saving…" : existingBook ? "Update Book" : "Save to Library"}
         </Button>

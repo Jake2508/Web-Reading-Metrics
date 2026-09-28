@@ -4,8 +4,12 @@ import { BookForm } from "./BookForm";
 import { useCreateBook, useBooks, useUpdateBook, useDeleteBook } from "../books/hooks/useBooks";
 import { BookCover } from "../../components/ui/BookCover";
 import { Button } from "../../components/ui/Button";
-import { Badge } from "../../components/ui/Badge";
-import { Input } from "../../components/ui/Input";
+import { Chip } from "../../components/ui/Chip";
+import { Panel } from "../../components/ui/Panel";
+import { SegmentedToggle } from "../../components/ui/SegmentedToggle";
+import { Skeleton } from "../../components/ui/Skeleton";
+import { Tag } from "../../components/ui/Tag";
+import { fieldClass, labelClass } from "../../components/ui/fieldStyles";
 import type { BookSearchResult, Book } from "../../../../shared/src/schemas";
 
 function isDuplicateBook(
@@ -107,46 +111,42 @@ export function AdminPanel() {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-black">Admin</h1>
-        <div className="flex gap-2">
-          <Button
-            variant={view.type === "search" || view.type === "form-new" ? "primary" : "secondary"}
-            size="sm"
-            onClick={() => setView({ type: "search" })}
-          >
-            + Add Book
-          </Button>
-          <Button
-            variant={view.type === "library" || view.type === "form-edit" ? "primary" : "secondary"}
-            size="sm"
-            onClick={() => setView({ type: "library" })}
-          >
-            Manage Library
-          </Button>
-        </div>
-      </div>
+    <div className="flex flex-col gap-4">
+      <header className="mb-2 flex flex-wrap items-center justify-between gap-4">
+        <h1 className="font-serif text-title text-text">Admin</h1>
+        <SegmentedToggle
+          label="Admin section"
+          value={view.type === "search" || view.type === "form-new" ? "add" : "manage"}
+          onChange={(v) => setView({ type: v === "add" ? "search" : "library" })}
+          options={[
+            { value: "add", label: "Add book" },
+            { value: "manage", label: "Manage library" },
+          ]}
+        />
+      </header>
 
       {view.type === "search" && (
-        <div className="flex flex-col gap-5">
-          <div
-            className="border-3 border-black bg-[#FFEB3B] p-5"
-            style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-          >
-            <h2 className="font-black text-lg mb-3">Search for a Book</h2>
-            <div className="flex gap-2">
+        <div className="flex flex-col gap-4">
+          <Panel className="flex flex-col gap-3" aria-labelledby="admin-search-heading">
+            <h2 id="admin-search-heading" className="font-serif text-panel font-semibold text-text">
+              Search for a book
+            </h2>
+            <div className="flex flex-wrap items-end gap-2">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="Book title or author..."
-                className="flex-1 border-2 border-black px-3 py-2 text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-black"
+                placeholder="Book title or author…"
+                aria-label="Book title or author"
+                className={`${fieldClass} min-w-48 flex-1`}
               />
-              <div className="flex flex-col justify-center items-center">
-                <label className="text-[10px] font-black uppercase tracking-wide leading-none mb-1">Results</label>
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="admin-search-limit" className={labelClass}>
+                  Results
+                </label>
                 <input
+                  id="admin-search-limit"
                   type="number"
                   min={1}
                   max={40}
@@ -155,23 +155,22 @@ export function AdminPanel() {
                     const v = Math.min(40, Math.max(1, parseInt(e.target.value, 10) || 1));
                     setSearchLimit(v);
                   }}
-                  className="w-14 border-2 border-black px-2 py-2 text-sm font-medium bg-white focus:outline-none focus:ring-2 focus:ring-black text-center"
+                  className={`${fieldClass} w-20 text-center`}
                 />
               </div>
-              <Button onClick={handleSearch} variant="secondary" disabled={searchQuery.trim().length < 2}>
+              <Button onClick={handleSearch} disabled={searchQuery.trim().length < 2} className="py-3">
                 Search
               </Button>
             </div>
-            <p className="text-xs font-semibold text-black/60 mt-2">
+            <p className="text-meta text-text-muted">
               Searches Open Library and Google Books. You can edit all fields before saving.
             </p>
-          </div>
+          </Panel>
 
           {searchLoading && (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2" aria-busy="true">
               {Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="border-2 border-black h-20 animate-pulse bg-gray-100"
-                  style={{ boxShadow: "3px 3px 0 #000" }} />
+                <Skeleton key={i} className="h-20" />
               ))}
             </div>
           )}
@@ -179,50 +178,41 @@ export function AdminPanel() {
           {searchResults && !searchLoading && (
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <p className="text-sm font-bold">{searchResults.length} results</p>
+                <p className="text-body font-bold text-brass tabular-nums">{searchResults.length} results</p>
                 <Button size="sm" variant="ghost" onClick={() => setView({ type: "form-new" })}>
                   Add manually
                 </Button>
               </div>
               {searchResults.length === 0 && (
-                <div className="border-2 border-black p-4 bg-white text-center"
-                  style={{ boxShadow: "3px 3px 0 #000" }}>
-                  <p className="font-bold text-black/60">No results found.</p>
+                <Panel as="div" className="text-center">
+                  <p className="text-body text-text-muted">No results found.</p>
                   <Button size="sm" variant="ghost" className="mt-2" onClick={() => setView({ type: "form-new" })}>
                     Add manually
                   </Button>
-                </div>
+                </Panel>
               )}
               {searchResults.map((result) => {
                 const alreadyAdded = isDuplicateBook(result, books ?? []);
                 return (
                   <div
                     key={result.externalId}
-                    className="border-2 border-black bg-white p-3 flex gap-3 items-start cursor-pointer hover:-translate-y-0.5 transition-transform"
-                    style={{ boxShadow: "3px 3px 0 #000" }}
+                    className="flex cursor-pointer items-start gap-4 rounded-lg border border-border bg-surface px-5 py-3 transition-colors duration-150 ease-out hover:bg-surface-hover"
                     onClick={() => handleSelectResult(result)}
                   >
-                    <BookCover
-                      coverUrl={result.coverUrl}
-                      title={result.title}
-                      author={result.author}
-                      className="w-10 h-14 flex-shrink-0"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <p className="font-black text-sm leading-tight">{result.title}</p>
-                      <p className="text-xs font-bold text-black/60 mt-0.5">{result.author}</p>
-                      <div className="flex gap-1.5 mt-1 flex-wrap">
-                        <Badge color="black">{result.genre}</Badge>
-                        {result.pages && <Badge color="yellow">{result.pages}pp</Badge>}
-                        {result.publishedYear && <span className="text-xs font-semibold text-black/40">{result.publishedYear}</span>}
-                        {alreadyAdded && (
-                          <span className="text-xs font-black text-[#FF5252] border-2 border-[#FF5252] px-1.5 py-0.5 leading-none">
-                            In library
-                          </span>
+                    <BookCover coverUrl={result.coverUrl} title={result.title} className="w-10" compact />
+                    <div className="min-w-0 flex-1">
+                      <p className="font-serif text-book font-semibold text-text">{result.title}</p>
+                      <p className="mt-0.5 text-meta text-text-muted">{result.author}</p>
+                      <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                        <Chip>{result.genre}</Chip>
+                        {result.pages && <Chip>{result.pages} pages</Chip>}
+                        {result.publishedYear && (
+                          <span className="text-meta text-text-muted tabular-nums">{result.publishedYear}</span>
                         )}
+                        {alreadyAdded && <Tag>In library</Tag>}
                       </div>
                     </div>
-                    <Button size="sm" variant="primary" onClick={(e) => { e.stopPropagation(); handleSelectResult(result); }}>
+                    <Button size="sm" variant="secondary" onClick={(e) => { e.stopPropagation(); handleSelectResult(result); }}>
                       Select
                     </Button>
                   </div>
@@ -234,18 +224,15 @@ export function AdminPanel() {
       )}
 
       {view.type === "form-new" && (
-        <div
-          className="border-3 border-black bg-white p-5"
-          style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-        >
-          <h2 className="font-black text-lg mb-4">
-            {view.prefill ? "Review & Edit Book" : "Add Book Manually"}
+        <Panel className="flex flex-col gap-4" aria-labelledby="admin-form-heading">
+          <h2 id="admin-form-heading" className="font-serif text-panel font-semibold text-text">
+            {view.prefill ? "Review and edit book" : "Add book manually"}
           </h2>
           {formNewDuplicate && (
-            <div className="border-2 border-[#FF5252] bg-[#FF5252]/10 p-3 mb-4">
-              <p className="font-black text-sm text-[#FF5252]">Already in your library</p>
-              <p className="text-xs font-semibold text-black/70 mt-0.5">
-                "{formNewDuplicate.title}" by {formNewDuplicate.author} has already been added.
+            <div role="status" className="rounded-md border border-brass bg-surface-2 px-4 py-3">
+              <p className="text-body font-bold text-brass">Already in your library</p>
+              <p className="mt-0.5 text-meta text-text-muted">
+                “{formNewDuplicate.title}” by {formNewDuplicate.author} has already been added.
               </p>
             </div>
           )}
@@ -256,40 +243,44 @@ export function AdminPanel() {
             isSubmitting={createBook.isPending}
           />
           {createBook.isError && (
-            <p className="text-[#FF5252] text-sm font-bold mt-2">{createBook.error.message}</p>
+            <p role="alert" className="text-body font-bold text-brass">{createBook.error.message}</p>
           )}
-        </div>
+        </Panel>
       )}
 
       {view.type === "library" && (
         <div className="flex flex-col gap-3">
           {deleteError && (
-            <div className="border-2 border-[#FF5252] bg-[#FF5252]/10 p-3">
-              <p className="font-bold text-sm text-[#FF5252]">Delete failed: {deleteError}</p>
-              <p className="text-xs font-semibold text-black/60 mt-1">Make sure the backend server is running on port 3002.</p>
+            <div role="alert" className="rounded-md border border-brass bg-surface-2 px-4 py-3">
+              <p className="text-body font-bold text-brass">Delete failed: {deleteError}</p>
+              <p className="mt-1 text-meta text-text-muted">Make sure the backend server is running on port 3002.</p>
             </div>
           )}
           {!books?.length && (
-            <div className="border-2 border-black p-6 bg-[#FFEB3B] text-center"
-              style={{ boxShadow: "3px 3px 0 #000" }}>
-              <p className="font-black">No books yet. Add some!</p>
-            </div>
+            <Panel as="div" className="text-center">
+              <p className="text-body text-text-muted">No books yet. Add some!</p>
+            </Panel>
           )}
           {books?.map((book) => (
-            <div key={book.id}
-              className="border-3 border-black bg-white p-4 flex gap-3 items-start"
-              style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
+            <div
+              key={book.id}
+              className="flex items-start gap-4 rounded-lg border border-border bg-surface px-5 py-3 transition-colors duration-150 ease-out hover:bg-surface-hover"
             >
-              <BookCover coverUrl={book.coverUrl} title={book.title} author={book.author} className="w-12 h-18 flex-shrink-0" />
-              <div className="flex-1 min-w-0">
-                <p className="font-black text-sm leading-tight">{book.title}</p>
-                <p className="text-xs font-bold text-black/60">{book.author}</p>
-                <div className="flex gap-1 mt-1">
-                  <Badge color="black">{book.genre}</Badge>
-                  {book.rating && <Badge color="yellow">{book.rating}/5</Badge>}
+              <BookCover coverUrl={book.coverUrl} title={book.title} className="w-11" compact />
+              <div className="min-w-0 flex-1">
+                <p className="font-serif text-book font-semibold text-text">{book.title}</p>
+                <p className="text-meta text-text-muted">{book.author}</p>
+                <div className="mt-2 flex items-center gap-2">
+                  <Chip>{book.genre}</Chip>
+                  {book.rating != null && (
+                    <span className="text-meta font-bold text-brass tabular-nums">
+                      <span aria-hidden="true">★ </span>
+                      {book.rating.toFixed(1)}
+                    </span>
+                  )}
                 </div>
               </div>
-              <div className="flex gap-2 flex-shrink-0">
+              <div className="flex shrink-0 gap-2">
                 <Button size="sm" variant="secondary" onClick={() => setView({ type: "form-edit", book })}>
                   Edit
                 </Button>
@@ -314,11 +305,10 @@ export function AdminPanel() {
       )}
 
       {view.type === "form-edit" && (
-        <div
-          className="border-3 border-black bg-white p-5"
-          style={{ borderWidth: "3px", boxShadow: "4px 4px 0 #000" }}
-        >
-          <h2 className="font-black text-lg mb-4">Edit Book</h2>
+        <Panel className="flex flex-col gap-4" aria-labelledby="admin-edit-heading">
+          <h2 id="admin-edit-heading" className="font-serif text-panel font-semibold text-text">
+            Edit book
+          </h2>
           <BookForm
             existingBook={view.book}
             onSubmit={(data) => handleUpdateSubmit(data, view.book.id)}
@@ -326,9 +316,9 @@ export function AdminPanel() {
             isSubmitting={updateBook.isPending}
           />
           {updateBook.isError && (
-            <p className="text-[#FF5252] text-sm font-bold mt-2">{updateBook.error.message}</p>
+            <p role="alert" className="text-body font-bold text-brass">{updateBook.error.message}</p>
           )}
-        </div>
+        </Panel>
       )}
     </div>
   );

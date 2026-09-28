@@ -1,24 +1,24 @@
 {
-  "totalBooks": 86,
-  "totalPages": 33309,
-  "estimatedWords": 9159975,
+  "totalBooks": 87,
+  "totalPages": 34416,
+  "estimatedWords": 9464400,
   "topAuthor": {
     "name": "Stephen King",
     "bookCount": 19,
     "percentage": 22
   },
   "topGenre": {
-    "name": "Fantasy",
-    "bookCount": 27,
-    "percentage": 31
+    "name": "Horror",
+    "bookCount": 35,
+    "percentage": 40
   },
   "averageRating": 4.1,
-  "averagePages": 387,
+  "averagePages": 396,
   "longestBook": {
     "id": "cmqdnjnrd000jum50vj3yttwe",
     "title": "It",
     "author": "Stephen King",
-    "genre": "Mystery & Thriller",
+    "genre": "Horror",
     "pages": 1168,
     "estimatedWords": 321200,
     "rating": 4.6,
@@ -28,23 +28,23 @@
     "publishedYear": 1986,
     "isbn": "6073157061",
     "createdAt": "2026-06-14T10:39:19.561Z",
-    "updatedAt": "2026-06-14T10:39:19.561Z"
+    "updatedAt": "2026-09-28T18:29:29.555Z"
   },
   "shortestBook": {
     "id": "cmqdnwz140019um50510jvfg1",
     "title": "The Fall of the House of Usher",
     "author": "Edgar Allan Poe",
-    "genre": "Romance",
+    "genre": "Horror",
     "pages": 38,
     "estimatedWords": 10450,
     "rating": 4.1,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/11838138-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/15207640-L.jpg",
     "description": null,
-    "publishedYear": 1704,
-    "isbn": "1549691228",
+    "publishedYear": 1839,
+    "isbn": "9781318795970",
     "createdAt": "2026-06-14T10:49:40.696Z",
-    "updatedAt": "2026-06-14T10:49:40.696Z"
+    "updatedAt": "2026-09-28T18:29:28.994Z"
   },
   "mostRecentBook": {
     "id": "cmqdl39av000dumfodtwz9h6d",
@@ -71,60 +71,48 @@
     "estimatedWords": 146025,
     "rating": 4.8,
     "dateFinished": null,
-    "coverUrl": "https://covers.openlibrary.org/b/id/4649991-L.jpg",
+    "coverUrl": "https://covers.openlibrary.org/b/id/13626825-L.jpg",
     "description": null,
     "publishedYear": 1981,
-    "isbn": "0671735632",
+    "isbn": "0751509272",
     "createdAt": "2026-06-14T10:38:22.234Z",
-    "updatedAt": "2026-06-14T10:38:22.234Z"
+    "updatedAt": "2026-09-28T18:29:28.938Z"
   },
   "genreBreakdown": [
     {
-      "genre": "Fantasy",
-      "count": 27,
-      "pages": 10065,
-      "percentage": 31
+      "genre": "Horror",
+      "count": 35,
+      "pages": 16997,
+      "percentage": 40
+    },
+    {
+      "genre": "Classics",
+      "count": 19,
+      "pages": 5019,
+      "percentage": 22
     },
     {
       "genre": "Science Fiction",
-      "count": 15,
-      "pages": 5955,
-      "percentage": 17
+      "count": 14,
+      "pages": 4563,
+      "percentage": 16
     },
     {
-      "genre": "Horror",
-      "count": 11,
-      "pages": 4675,
-      "percentage": 13
-    },
-    {
-      "genre": "Mystery & Thriller",
-      "count": 11,
-      "pages": 5746,
-      "percentage": 13
-    },
-    {
-      "genre": "History",
-      "count": 4,
-      "pages": 1135,
-      "percentage": 5
+      "genre": "Fantasy",
+      "count": 8,
+      "pages": 3990,
+      "percentage": 9
     },
     {
       "genre": "Nature",
       "count": 2,
-      "pages": 500,
+      "pages": 790,
       "percentage": 2
     },
     {
-      "genre": "Self-Help",
+      "genre": "Business",
       "count": 2,
-      "pages": 523,
-      "percentage": 2
-    },
-    {
-      "genre": "Unknown",
-      "count": 2,
-      "pages": 832,
+      "pages": 541,
       "percentage": 2
     },
     {
@@ -134,63 +122,33 @@
       "percentage": 2
     },
     {
-      "genre": "Nyt:combined-print-and-e-book-",
+      "genre": "Mystery & Thriller",
       "count": 1,
-      "pages": 762,
+      "pages": 464,
       "percentage": 1
     },
     {
-      "genre": "Business",
+      "genre": "Graphic Novels",
       "count": 1,
-      "pages": 253,
+      "pages": 424,
       "percentage": 1
     },
     {
-      "genre": "Greek Epic Poetry",
+      "genre": "Philosophy",
       "count": 1,
-      "pages": 352,
+      "pages": 203,
       "percentage": 1
     },
     {
-      "genre": "Married People",
+      "genre": "History",
       "count": 1,
-      "pages": 278,
+      "pages": 246,
       "percentage": 1
     },
     {
-      "genre": "Romance",
-      "count": 1,
-      "pages": 38,
-      "percentage": 1
-    },
-    {
-      "genre": "Juvenile Literature",
-      "count": 1,
-      "pages": 89,
-      "percentage": 1
-    },
-    {
-      "genre": "Memoir",
-      "count": 1,
-      "pages": 288,
-      "percentage": 1
-    },
-    {
-      "genre": "Allegories",
-      "count": 1,
-      "pages": 311,
-      "percentage": 1
-    },
-    {
-      "genre": "Fiction",
+      "genre": "Self-Help",
       "count": 1,
       "pages": 320,
-      "percentage": 1
-    },
-    {
-      "genre": "Dystopian Fiction",
-      "count": 1,
-      "pages": 328,
       "percentage": 1
     }
   ],
@@ -201,14 +159,14 @@
       "pages": 11884
     },
     {
-      "author": "Anne Rice",
+      "author": "Robert R. McCammon",
       "count": 5,
-      "pages": 2267
+      "pages": 2907
     },
     {
-      "author": "George Orwell",
+      "author": "Anne Rice",
       "count": 5,
-      "pages": 1298
+      "pages": 2151
     },
     {
       "author": "H. G. Wells",
@@ -221,14 +179,24 @@
       "pages": 1501
     },
     {
-      "author": "Robert R. McCammon",
+      "author": "George Orwell",
       "count": 4,
-      "pages": 2443
+      "pages": 970
+    },
+    {
+      "author": "Fyodor Dostoevsky",
+      "count": 3,
+      "pages": 1088
     },
     {
       "author": "Ray Bradbury",
       "count": 3,
       "pages": 700
+    },
+    {
+      "author": "Franz Kafka",
+      "count": 2,
+      "pages": 387
     },
     {
       "author": "James Herbert",
@@ -244,11 +212,6 @@
       "author": "Ezekiel Boone",
       "count": 1,
       "pages": 351
-    },
-    {
-      "author": "Robert McCammon",
-      "count": 1,
-      "pages": 464
     },
     {
       "author": "Alvin Schwartz",
@@ -273,20 +236,20 @@
     {
       "author": "David Wallace-Wells",
       "count": 1,
-      "pages": 250
+      "pages": 310
     },
     {
-      "author": "Alex Rodgers",
+      "author": "Alex Rogers",
       "count": 1,
-      "pages": 250
+      "pages": 480
     },
     {
-      "author": "Peter A. Thiel",
+      "author": "Peter Thiel",
       "count": 1,
       "pages": 253
     },
     {
-      "author": "H.P. Lovecraft",
+      "author": "H. P. Lovecraft",
       "count": 1,
       "pages": 880
     },
@@ -301,7 +264,7 @@
       "pages": 384
     },
     {
-      "author": "Όμηρος",
+      "author": "Homer",
       "count": 1,
       "pages": 352
     },
@@ -319,16 +282,6 @@
       "author": "Edgar Allan Poe",
       "count": 1,
       "pages": 38
-    },
-    {
-      "author": "Leslie Shepard",
-      "count": 1,
-      "pages": 89
-    },
-    {
-      "author": "Фёдор Михайлович Достоевский",
-      "count": 1,
-      "pages": 296
     },
     {
       "author": "Chris Voss",
@@ -351,9 +304,9 @@
       "pages": 319
     },
     {
-      "author": "Andrzej Klimowski",
+      "author": "Mikhail Bulgakov",
       "count": 1,
-      "pages": 127
+      "pages": 386
     },
     {
       "author": "William Golding",
@@ -361,7 +314,7 @@
       "pages": 243
     },
     {
-      "author": "Matthew P. Walker",
+      "author": "Matthew Walker",
       "count": 1,
       "pages": 360
     },
@@ -374,11 +327,6 @@
       "author": "Anthony Burgess",
       "count": 1,
       "pages": 192
-    },
-    {
-      "author": "Franz Kafka",
-      "count": 1,
-      "pages": 88
     },
     {
       "author": "Mary Shelley",
@@ -433,11 +381,6 @@
       "pagesRead": 400
     },
     {
-      "month": "2021-12",
-      "booksCompleted": 1,
-      "pagesRead": 328
-    },
-    {
       "month": "2022-12",
       "booksCompleted": 1,
       "pagesRead": 499
@@ -453,6 +396,6 @@
       "pagesRead": 271
     }
   ],
-  "diversityScore": 44,
-  "genresExplored": 19
+  "diversityScore": 28,
+  "genresExplored": 12
 }
